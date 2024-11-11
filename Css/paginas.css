@@ -415,104 +415,236 @@ header {
     }
 }
 /*PAGINA ABOUT US*/
-/*TARGETAS DE ACERCA DE NOSOTROS*/
-.ImgLogo{
-    display: block;
-    width: 40%;
-    margin: auto;
-}
-.equipo{
+/* TARGETAS DE ACERCA DE NOSOTROS */
+/* Hero Section */
+.hero {
+    position: relative;
     text-align: center;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    text-align: center;
+    color: #fff;
+    padding: 100px 20px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f7c2d4, #ffc7d3, #ffa4e2);
+    background-size: 300% 300%;
+    animation: gradientAnimation 8s ease infinite;
 }
-#TitleNuestroEquipo {
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: url('/Dulce_Bendicion/Img/banner.jpg') center/cover no-repeat;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.ImgLogo img {
+    width: 150px;
+    margin: 20px 0;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.hero h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin: 0.3em 0;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hero h2 {
+    font-size: 1.5em;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #ffe0ec;
+    margin: 0;
+}
+
+/* Nuestro Equipo Section */
+
+    .DULCEBENDITITLEABOUT{
+        font-family: "Rochester", cursive;
+        font-weight: 400;
+        font-style: normal;
+        display: flex;
     justify-content: center;
     text-align: center;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    margin: 50px 0 20px 0;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+      }
+      
+    
 
-}
-.AcercaTitle{
+
+/* Equipo Section */
+.equipo {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
-    text-align: center;
-    background-color: #fdf6f6;
+    justify-content: center;
+    gap: 40px; /* Aumentado para más espacio entre tarjetas */
+    padding: 40px 20px;
 }
 
-.AceBG{
-    justify-content: space-around;
-    text-align: center;
-}
-.AcercaOfUs {
-    background-color: #fdf6f6;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    text-align: center;
-}
-.AcercaHistoria{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    text-align: center;
-}
-.HistoriaBG{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    text-align: center;
-    background-color: #fdf6f6;
-}
-.Acerca_CARD2 {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 10px;
+.cardEquipo {
+    background-color: #ffffff;
+    width: 280px; /* Reducido para que haya más espacio en pantallas pequeñas */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     padding: 20px;
-    width: 600px;
-    height:auto;
     text-align: center;
+    margin: 10px; /* Agregado para más espacio entre tarjetas */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.cardEquipo:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.cardEquipo img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
     transition: transform 0.3s ease;
 }
 
-.Acerca_CARD2 img {
-    width: 100%;
-    height: 300px;
-    object-fit:cover;
-    border-radius: 10px;
+.cardEquipo:hover img {
+    transform: scale(1.05);
 }
 
-.Acerca_CARD2:hover {
-    transform: scale(1.05) ;
+.cardEquipo h3 {
+    font-size: 1.5em;
+    margin: 15px 0;
+    color: #b56576;
+    font-family: "Rochester", cursive;
 }
 
-.Acerca_CARD3 {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-    padding: 20px;
-    width: 600px;
-    height:auto;
+.cardEquipo p {
+    font-family: "PT Serif Caption", serif;
+
+    font-size: 1em;
+    color: #666;
+    line-height: 1.6;
+}
+
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+.ImgLogo {
+    display: block;
+    width: 200px ;
+    margin: 20px auto;
+    animation: fadeIn 1s ease-out;
+}
+
+.equipo, .AcercaOfUs, .AcercaHistoria, .HistoriaBG {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     text-align: center;
-    transition: transform 0.3s ease;
+    padding: 30px 0;
+    gap: 20px;
+    background-color: #f9f9f9;
+    animation: fadeIn 1s ease-out;
 }
 
-.Acerca_CARD3 img {
+#TitleNuestroEquipo, .AcercaTitle {
+    
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #545252;
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: "PT Serif Caption", serif;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.Acerca_CARD2, .Acerca_CARD3 {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 500px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.Acerca_CARD2:hover, .Acerca_CARD3:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.Acerca_CARD2 img, .Acerca_CARD3 img {
     width: 100%;
-    height: 300px;
-    object-fit:cover;
-    border-radius: 10px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.5s ease;
 }
 
-.Acerca_CARD3:hover {
-    transform: scale(1.05) ;
+.Acerca_CARD2:hover img, .Acerca_CARD3:hover img {
+    transform: scale(1.1);
 }
+
+.Acerca_CARD2 h3, .Acerca_CARD3 h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin: 15px 0;
+    font-weight: 600;
+}
+
+.Acerca_CARD2 p, .Acerca_CARD3 p {
+    font-family: "PT Serif Caption", serif;
+
+    font-size: 1em;
+    color: #666;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+/* Sutileza en la animación de entrada */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Efecto sutil de brillo */
+.Acerca_CARD2::before, .Acerca_CARD3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewX(-25deg);
+    transition: left 0.5s;
+}
+
+.Acerca_CARD2:hover::before, .Acerca_CARD3:hover::before {
+    left: 100%;
+}
+
 
 /*FOOTER Section*/
 footer {
@@ -935,14 +1067,16 @@ footer {
     background-size: cover;
     background-position: center;
     color: #333;
-    height: 100vh; /* Altura total del banner */
+    height: 100vh;
     display: flex;
-    flex-direction: column; /* Alineación en columna */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 0;
     padding: 0;
     overflow: hidden;
+    font-family: 'Poppins', sans-serif; /* Tipografía moderna */
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8); /* Sombra de texto */
 }
 
 .faq-banner::before {
@@ -952,76 +1086,124 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Máscara gris con transparencia */
+    background-color: rgba(0, 0, 0, 0.5); /* Máscara oscura */
     z-index: 1;
 }
 
 .faq-banner h1 {
-    font-size: 2.5em;
-    font-weight: bold;
-    color: #fff;
+    font-size: 3em;
+    font-weight: 700;
+    color: #ffffff;
     margin: 0;
-    margin-bottom: 0.2em; /* Espacio entre h1 y p */
+    margin-bottom: 0.3em;
     position: relative;
     z-index: 2;
     text-align: center;
+    letter-spacing: 1px;
+    animation: fadeInDown 1s ease-out; /* Animación de entrada */
 }
 
 .faq-banner p {
-    font-size: 1.5em;
-    color: #ffa4e2b6; /* Color rosa claro */
+    font-size: 1.6em;
+    color: #ffa4e2b6;
     margin: 0;
     position: relative;
     z-index: 2;
     text-align: center;
+    animation: fadeInUp 1s ease-out; /* Animación de entrada */
 }
 
+/* Animaciones */
+@keyframes fadeInDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
 
 .faq-content {
-    
-    max-width: 500px;
+    max-width: 800px;
     margin: 0 auto;
+    padding: 30px;
+    background-color: #ffffff10; /* Fondo transparente */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .faq-item {
-    margin: 20px 0;
+    margin: 25px 0;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.faq-item:hover {
+    transform: translateY(-5px); /* Efecto de elevación */
 }
 
 .faq-question {
-    text-align: center;
-    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #ffc7d3;
     border: none;
     color: #b56576;
- 
-    font-size: 1.2em;
-    padding: 20px;
+    font-size: 1.3em;
+    padding: 15px 20px;
     cursor: pointer;
-    border-radius: 100px;
-    transition: background-color 0.3s;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: 600;
 }
 
 .faq-question:hover {
     background-color: #ff91a9;
+    color: #ffffff;
 }
 
 /* Animación de respuesta */
 .faq-answer {
     max-height: 0;
     overflow: hidden;
-    padding: 0 15px;
-    background-color: #f9f9f9;
-    border-radius: 0 0 5px 5px;
-    transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.4s ease;
+    padding: 0 20px;
+    background-color: #f7f7f7;
+    border-top: 2px solid #ffc7d3;
+    border-radius: 0 0 10px 10px;
+    transition: max-height 0.5s ease, padding 0.5s ease, opacity 0.5s ease;
     opacity: 0;
 }
 
 /* Clase activa para mostrar respuesta */
 .faq-answer.show {
-    max-height: 500px; /* Ajusta según la altura máxima de tus respuestas */
-    padding: 15px;
+    max-height: 800px; /* Altura máxima para respuestas largas */
+    padding: 15px 20px;
     opacity: 1;
 }
+
+/* Estilo para el contenido de la respuesta */
+.faq-answer p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+}
+
+/* Sombra de texto para preguntas */
+.faq-question::before {
+    content: '?';
+    color: rgba(0, 0, 0, 0.1);
+    font-size: 2.5em;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+}
+
+
 /*PRODUCTOS INDIVIDUAL*/
 .product-detail {
     display: flex;

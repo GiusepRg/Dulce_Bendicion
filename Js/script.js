@@ -40,10 +40,6 @@ menuToggle.addEventListener('click', () => {
     menuToggle.classList.toggle('active');
 });
 
-
-// Carrito de Compras
-let carrito = [];
-
 // Función para agregar productos al carrito
 function addToCart() {
     const quantitySelect = document.getElementById("quantity");
@@ -128,6 +124,7 @@ document.addEventListener('click', (e) => {
 
 // Inicializar el carrito en el header al cargar la página
 document.addEventListener("DOMContentLoaded", actualizarCarrito);
+
 
 // Enviar Formulario de Correo
 const btn = document.getElementById('button');

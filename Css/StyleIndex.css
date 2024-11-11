@@ -204,6 +204,7 @@ header {
     to { opacity: 1; }
 }
 
+
 /* Carrito de compras */
 /* Estilo del contenedor del carrito */
 .carrito {
@@ -216,12 +217,11 @@ header {
     width: 30px;
 }
 
-/* Estilo del contador de artículos */
 .carrito .item-count {
     position: absolute;
     top: -10px;
     right: -10px;
-    background-color: #ff6f61;
+    background-color: #f68b82;
     color: #fff;
     padding: 5px;
     border-radius: 50%;
@@ -274,12 +274,11 @@ header {
 .eliminar {
     background: none;
     border: none;
-    color: #ff6f61;
+    color: #fff3f1;
     cursor: pointer;
     font-size: 12px;
     margin-left: 10px;
 }
-
 
 /* Animación de bienvenida */
 .inicio {
