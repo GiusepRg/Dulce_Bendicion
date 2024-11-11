@@ -1,102 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito Admin</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <title>Admin - Gestión de Productos</title>
+    <link rel="stylesheet" href="/Dulce_Bendicion/Css/Admin.css">
 </head>
-
 <body>
-    <header id="header">
-        <h1>Shopping Car</h1>
-    </header>
+    <div class="admin-container">
+        <h1>Administración de Productos</h1>
 
-    <main>
-        <div class="contenedor">
-            <!-- Añadir -->
-            <div class="añadir">
-                <h2>Añadir</h2>
-                <form>
-                    <label>Nombre del producto</label>
-                    <input type="text" id="productoAñadir" name="nombreDelProducto">
+        <!-- Formulario para agregar y editar productos -->
+        <form id="product-form">
+            <input type="hidden" id="product-id"> <!-- Campo oculto para el ID del producto -->
+            
+            <label for="product-name">Nombre del Producto</label>
+            <input type="text" id="product-name" placeholder="Nombre del producto" required>
 
-                    <label>Valor del producto</label>
-                    <input type="number" id="valorAñadir">
+            <label for="product-price">Precio</label>
+            <input type="number" id="product-price" placeholder="Precio" required>
 
-                    <label>Existencia</label>
-                    <input type="number" id="existenciaAñadir">
+            <label for="product-description">Descripción</label>
+            <textarea id="product-description" placeholder="Descripción del producto"></textarea>
 
-                    <label>Url Imagen</label>
-                    <input type="text" id="ImagenAñadir">
+            <label for="product-keywords">Palabras Clave</label>
+            <input type="text" id="product-keywords" placeholder="Palabras clave (separadas por comas)">
 
-                    <input class="button" type="button" id="botonAñadir" value="Añadir">
-                </form>
-            </div>
-            <!-- Editar -->
-            <div class="editar">
-                <h2>Editar</h2>
-                <form>
-                    <label>Nombre del producto</label>
-                    <select id="productoEditar">
-                        <option value="">---</option>
-                    </select>
+            <label for="product-color">Color</label>
+            <input type="text" id="product-color" placeholder="Color">
 
-                    <label>Atributo</label>
-                    <select id="atributoEditar">
-                        <option value="">---</option>
-                    </select>
+            <label for="product-size">Tamaño</label>
+            <select id="product-size">
+                <option value="Pequeño">Pequeño</option>
+                <option value="Mediano">Mediano</option>
+                <option value="Grande">Grande</option>
+            </select>
 
-                    <label>Nuevo valor</label>
-                    <input type="text" id="nuevoAtributo">
+            <label for="product-category">Categoría</label>
+            <select id="product-category">
+                <option value="torta">Torta</option>
+                <option value="helado">Helado</option>
+                <option value="pastel">Pastel</option>
+                <option value="bebidas">Bebidas</option> <!-- Nueva categoría -->
+            </select>
 
-                    <input class="button" type="button" id="botonEditar" value="Editar">
-                </form>
-            </div>
+            <label for="product-image">Imagen del Producto</label>
+            <input type="file" id="product-image" accept="image/*">
+            <img id="image-preview" style="width: 150px; height: 150px; display: none; margin-top: 10px;" alt="Vista previa de la imagen">
 
-            <!-- Eliminar -->
-            <div class="eliminar">
-                <h2>Eliminar</h2>
+            <label for="product-rating">Valoración</label>
+            <input type="number" id="product-rating" min="1" max="5" step="1" placeholder="1-5 estrellas">
 
-                <form>
-                    <label>Nombre del producto</label>
-                    <select id="productoEliminar">
-                        <option value="">---</option>
-                    </select>
-                    <input class="button" type="button" id="botonEliminar" value="Eliminar">
-                </form>
-            </div>
+            <button type="submit">Guardar Producto</button>
+        </form>
+
+        <!-- Lista de productos añadidos -->
+        <div class="product-list-admin" id="product-list">
+            <!-- Los productos se mostrarán aquí dinámicamente -->
         </div>
+    </div>
 
-        <!-- Mostrar el mensaje -->
-        <div class="contenedorMensaje">
-            <div id="mensaje"></div>
-        </div>
-
-        <!-- Productos -->
-        <div class="contenedorProductos">
-            <h2>Productos</h2>
-            <div class="mostrarProductos" id="mostrarProductos">
-                
-            </div>
-        </div>
-        </div>
-    </main>
-
-    <script src="admin.js"></script>
+    <script src="/Dulce_Bendicion/Js/admin.js"></script>
 </body>
-
 </html>

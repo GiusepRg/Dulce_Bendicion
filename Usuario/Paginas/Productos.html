@@ -6,7 +6,8 @@
     <title>Productos - Dulce Bendición</title>
     <link rel="stylesheet" href="/Dulce_Bendicion/Css/paginas.css">
     <script defer src="/Dulce_Bendicion/Js/script.js"></script>
-
+    <script src="/Dulce_Bendicion/Js/productos.js"></script>
+    <link rel="icon" href="/Dulce_Bendicion/Img/logo.ico" type="image/x-icon">
 </head>
 <body>
 
@@ -59,28 +60,57 @@
             <img src="/Dulce_Bendicion/Img/carrito.png" alt="Carrito de compras">
             <span class="item-count">0</span>
             <div class="carrito-desplegable">
-                <!-- Aquí se mostrarán los productos del carrito -->
+                <div class="producto-carrito">
+                    <img src="/ruta/a/imagen.jpg" alt="Producto">
+                    <p>Producto 1</p>
+                    <span>$10</span>
+                    <button class="eliminar">X</button>
+                </div>
+                <!-- Otros productos aquí -->
             </div>
         </div>
     </header>
+
+
     <!-- Sección Productos -->
-    <section class="productos">
-        <h2>Nuestros Productos</h2>
-        <div class="categorias">
-            <button class="categoria-btn">Tortas</button>
-            <button class="categoria-btn">Galletas</button>
-            <button class="categoria-btn">Pasteles</button>
+<div class="product-container">
+    <div class="filter-sidebar">
+        <h3>Buscar productos</h3>
+        <input type="text" id="search-bar" placeholder="Buscar...">
+
+        <h3>Ordenar por</h3>
+        <select id="sort-options">
+            <option value="new">Nuevo</option>
+            <option value="price-asc">Precio Ascendente</option>
+            <option value="price-desc">Precio Descendente</option>
+            <option value="rating">Valoración</option>
+        </select>
+
+        <h3>Keywords</h3>
+        <div class="filter-tags">
+            <span class="filter-tag" data-tag="Spring">Spring</span>
+            <span class="filter-tag" data-tag="Smart">Smart</span>
+            <span class="filter-tag" data-tag="Modern">Modern</span>
+            <!-- Añadir más etiquetas según lo necesites -->
         </div>
-        <div class="galeria-productos">
-            <div class="producto">
-                <img src="torta-chocolate.jpg" alt="Torta de Chocolate">
-                <h3>Torta de Chocolate</h3>
-                <p>$25,000 COP</p>
-                <button class="btn-agregar" data-producto-id="1">Agregar al Carrito</button>
-            </div>
-            <!-- Repetir para más productos -->
-        </div>
-    </section>
+        
+        <h3>Categorías</h3>
+        <label><input type="checkbox" name="category" value="pasteles"> Pasteles</label>
+        <label><input type="checkbox" name="category" value="tortas"> Tortas</label>
+        <label><input type="checkbox" name="category" value="helados"> Helados</label>
+
+        <h3>Rango de Precio</h3>
+        <input type="range" id="price-range" min="0" max="100" value="0">
+        <span id="price-display">Precio: $0</span>
+    </div>
+
+    <div class="product-grid">
+        <!-- Aquí se cargarán los productos dinámicamente -->
+    </div>
+</div>
+
+
+    
     <footer>
         <div class="footer-content">
             <div class="social-media">
