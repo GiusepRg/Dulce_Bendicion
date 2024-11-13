@@ -41,7 +41,7 @@ Dulce Bendición se especializa en pasteles, cafés y helados para eventos y bru
 - **JavaScript** para la interactividad de la página.
 - **Bootstrap** para diseño responsivo y rápido.
 - **Git y GitHub** para el control de versiones y la colaboración.
-- **Vercel / Netlify** (opcional) para el despliegue de la página.
+- **Vercel / Netlify / GitHub Pages** (opcional) para el despliegue de la página.
 
 ---
 
@@ -53,13 +53,13 @@ Para ver el proyecto en tu máquina local, sigue estos pasos:
 ```bash
 git clone https://github.com/GiusepRg/Dulce_Bendicion.git
 ```
-2. **Navega al directorio del proyecto **:
+2. **Navega al directorio del proyecto**:
 ```bash
 Copy code
 cd Dulce_Bendicion
 ```
 
-3. **Abre index.html en tu navegador para ver la página. **
+3. **Abre index.html en tu navegador para ver la página**:
 ---
 ## 🖥️ Uso
 Una vez clonado el repositorio, puedes abrir el archivo `index.html`
