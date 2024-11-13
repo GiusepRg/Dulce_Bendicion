@@ -1462,67 +1462,57 @@ button:active {
     opacity: 0;
 }
 
-/*PRODUCTOS*/
+/* Swiper Container */
+/* Ajuste del Swiper para la vista móvil */
 .swiper-container {
     width: 100%;
-    height: 400px;
-    margin-bottom: 40px; /* Ajusta el valor según el espacio que necesites */
-
+    height: 300px; /* Reduce la altura en móvil para que no ocupe tanto espacio */
+    margin-bottom: 20px;
+    position: relative;
 }
-/* Estilos minimalistas para las flechas de navegación */
-/* Personaliza el color y estilo de las flechas de navegación */
-.swiper-container .swiper-button-next, .swiper-container .swiper-button-prev {
-    color: #FF69B4; /* Cambia este color al que prefieras */
-   
-  
-  
+/* Ajuste de los puntos de paginación en móvil */
+.swiper-pagination {
+    bottom: 15px;
+}
+/* Minimalist Navigation Arrows */
+.swiper-container .swiper-button-next, 
+.swiper-container .swiper-button-prev {
+    color: #FF69B4;
     display: flex;
     align-items: center;
     justify-content: center;
-   
     transition: transform 0.3s, background-color 0.3s;
 }
 
-.swiper-container .swiper-button-next:hover, .swiper-container .swiper-button-prev:hover {
-    
-    color: #fff; /* Color de la flecha al pasar el cursor */
-    transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el cursor */
+.swiper-container .swiper-button-next:hover, 
+.swiper-container .swiper-button-prev:hover {
+    color: #fff;
+    transform: scale(1.1);
 }
 
-.swiper-button-next:hover, .swiper-button-prev:hover {
-
-    color: #fff; /* Color de la flecha al pasar el cursor */
-    transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el cursor */
-}
-/* Personalización de la paginación */
-.swiper-container .swiper-pagination-bullet {
-    background-color: #FF69B4; /* Color del punto */
-    width: 5px; /* Ancho del punto */
-    height: 5px; /* Altura del punto */
-    opacity: 0.5; /* Transparencia de los puntos inactivos */
-    transition: background-color 0.3s, transform 0.3s; /* Transición de color y tamaño */
-    bottom:6px; /* Cambia este valor para acercar o alejar los puntos del slider */
-
+/* Pagination Dots */
+.swiper-pagination-bullet {
+    background-color: #FF69B4;
+    width: 8px;
+    height: 8px;
+    opacity: 0.5;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-/* Cambiar el color y estilo del punto activo */
 .swiper-container .swiper-pagination-bullet-active {
-    background-color: #ff5072; /* Color del punto activo */
-    transform: scale(1.2); /* Tamaño más grande para el punto activo */
-    opacity: 1; /* Opacidad completa para el punto activo */
-    
+    background-color: #ff5072;
+    transform: scale(1.2);
+    opacity: 1;
 }
 
-
+/* Product Slide */
 .swiper-slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    margin-bottom: 50px;
-    padding: 10px;
 }
 
-/* Barra lateral de filtros desplegable */
+/* Filter Sidebar */
 .filter-sidebar {
     width: 300px;
     padding: 20px;
@@ -1533,17 +1523,17 @@ button:active {
     top: 0;
     right: -100%;
     height: 100%;
-    z-index: 30; /* Aumenta este valor si el header tiene un z-index alto */
+    z-index: 30;
     transition: right 0.4s ease;
     overflow-y: auto;
 }
 
 .filter-sidebar.show {
     padding-top: 100px;
-
     right: 0;
 }
 
+/* Ajuste de la posición del botón "Mostrar Filtros" */
 .filter-toggle {
     display: inline-block;
     padding: 10px;
@@ -1559,7 +1549,7 @@ button:active {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Filtro de categorías y tags */
+/* Category and Tag Filter */
 .filter-tags {
     display: flex;
     flex-wrap: wrap;
@@ -1580,7 +1570,7 @@ button:active {
     color: #fff;
 }
 
-/* Estilos del botón Aplicar Filtros */
+/* Apply Filter Button */
 .apply-filters-btn {
     background-color: #FF69B4;
     color: #fff;
@@ -1598,20 +1588,21 @@ button:active {
     background-color: #ff5072;
 }
 
+/* Product Container */
 .product-container {
     display: flex;
 }
 
-
+/* Product Grid */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 250px)); /* Set fixed column width */
     gap: 20px;
     padding: 20px;
     flex: 1;
 }
 
-/* Tarjeta de producto */
+/* Product Card */
 .product-card {
     background: #fff;
     border-radius: 8px;
@@ -1631,13 +1622,15 @@ button:active {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* Imagen de producto */
+/* Product Image */
 .product-card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    border-radius: 8px;
 }
 
+/* Product Name and Price */
 .product-name {
     font-weight: bold;
     font-size: 1.2em;
@@ -1648,15 +1641,13 @@ button:active {
     font-size: 1.1em;
 }
 
-/* Responsive */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .filter-sidebar {
-        padding-top: 100px;
         width: 100%;
-        position: fixed;
+        padding-top: 100px;
         height: 100%;
         top: 0;
-        z-index: 10;
     }
 
     .filter-toggle {
@@ -1664,9 +1655,26 @@ button:active {
     }
 
     .product-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust for smaller screens */
+
+    }
+
+    .product-card {
+        padding: 10px;
+    }
+
+    .product-card img {
+        height: 180px;
+    }
+
+    .swiper-container {
+        height: 300px;
+    }
+    .swiper-pagination-bullet{
+        bottom: 10px;
     }
 }
+
 
 
 /* Estilos de cabecera del blog */
