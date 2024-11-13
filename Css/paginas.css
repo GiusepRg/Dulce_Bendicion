@@ -1497,11 +1497,11 @@ button:active {
 /* Personalización de la paginación */
 .swiper-container .swiper-pagination-bullet {
     background-color: #FF69B4; /* Color del punto */
-    width: 12px; /* Ancho del punto */
-    height: 12px; /* Altura del punto */
+    width: 5px; /* Ancho del punto */
+    height: 5px; /* Altura del punto */
     opacity: 0.5; /* Transparencia de los puntos inactivos */
     transition: background-color 0.3s, transform 0.3s; /* Transición de color y tamaño */
-    bottom: 10px; /* Cambia este valor para acercar o alejar los puntos del slider */
+    bottom:6px; /* Cambia este valor para acercar o alejar los puntos del slider */
 
 }
 
@@ -1510,6 +1510,7 @@ button:active {
     background-color: #ff5072; /* Color del punto activo */
     transform: scale(1.2); /* Tamaño más grande para el punto activo */
     opacity: 1; /* Opacidad completa para el punto activo */
+    
 }
 
 
