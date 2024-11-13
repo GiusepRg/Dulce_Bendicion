@@ -3,63 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Gestión de Productos</title>
+    <title>Admin - Gestión de Productos y Artículos</title>
     <link rel="stylesheet" href="/Dulce_Bendicion/Css/Admin.css">
 </head>
 <body>
     <div class="admin-container">
-        <h1>Administración de Productos</h1>
+        <h1>Administración de Productos y Artículos</h1>
+        
+        <!-- Botones para cambiar entre secciones -->
+        <button onclick="showSection('product-section')">Productos</button>
+        <button onclick="showSection('article-section')">Artículos</button>
 
-        <!-- Formulario para agregar y editar productos -->
-        <form id="product-form">
-            <input type="hidden" id="product-id"> <!-- Campo oculto para el ID del producto -->
-            
-            <label for="product-name">Nombre del Producto</label>
-            <input type="text" id="product-name" placeholder="Nombre del producto" required>
-
-            <label for="product-price">Precio</label>
-            <input type="number" id="product-price" placeholder="Precio" required>
-
-            <label for="product-description">Descripción</label>
-            <textarea id="product-description" placeholder="Descripción del producto"></textarea>
-
-            <label for="product-keywords">Palabras Clave</label>
-            <input type="text" id="product-keywords" placeholder="Palabras clave (separadas por comas)">
-
-            <label for="product-color">Color</label>
-            <input type="text" id="product-color" placeholder="Color">
-
-            <label for="product-size">Tamaño</label>
-            <select id="product-size">
-                <option value="Pequeño">Pequeño</option>
-                <option value="Mediano">Mediano</option>
-                <option value="Grande">Grande</option>
-            </select>
-
-            <label for="product-category">Categoría</label>
-            <select id="product-category">
-                <option value="torta">Torta</option>
-                <option value="helado">Helado</option>
-                <option value="pastel">Pastel</option>
-                <option value="bebidas">Bebidas</option> <!-- Nueva categoría -->
-            </select>
-
-            <label for="product-image">Imagen del Producto</label>
-            <input type="file" id="product-image" accept="image/*">
-            <img id="image-preview" style="width: 150px; height: 150px; display: none; margin-top: 10px;" alt="Vista previa de la imagen">
-
-            <label for="product-rating">Valoración</label>
-            <input type="number" id="product-rating" min="1" max="5" step="1" placeholder="1-5 estrellas">
-
-            <button type="submit">Guardar Producto</button>
-        </form>
-
-        <!-- Lista de productos añadidos -->
-        <div class="product-list-admin" id="product-list">
-            <!-- Los productos se mostrarán aquí dinámicamente -->
+        <!-- Sección de Productos -->
+        <div id="product-section" class="admin-section">
+            <h2>Productos</h2>
+            <form id="product-form">
+                <input type="hidden" id="product-id"> <!-- Campo oculto para el ID del producto -->
+                <input type="text" id="product-name" placeholder="Nombre del producto" required>
+                <input type="number" id="product-price" placeholder="Precio" required>
+                <textarea id="product-description" placeholder="Descripción"></textarea>
+                <input type="text" id="product-keywords" placeholder="Palabras clave (separadas por comas)">
+                <input type="text" id="product-color" placeholder="Color">
+                <select id="product-size">
+                    <option value="Pequeño">Pequeño</option>
+                    <option value="Mediano">Mediano</option>
+                    <option value="Grande">Grande</option>
+                </select>
+                <select id="product-category">
+                    <option value="torta">Torta</option>
+                    <option value="helado">Helado</option>
+                    <option value="pastel">Pastel</option>
+                    <option value="bebidas">Bebidas</option>
+                </select>
+                <input type="file" id="product-image" accept="image/*">
+                <label for="product-rating">Valoración:</label>
+                <input type="number" id="product-rating" min="1" max="5" step="1" placeholder="1-5 estrellas">
+                <button type="submit">Guardar Producto</button>
+            </form>
+            <div class="product-list-admin" id="product-list">
+                <!-- Productos añadidos aparecerán aquí -->
+            </div>
         </div>
+        <!-- Sección de Artículos -->
+<div id="article-section" class="admin-section" style="display: none;">
+    <h2>Artículos</h2>
+    <form id="article-form">
+        <input type="text" id="article-title" placeholder="Título del artículo" required>
+        <input type="text" id="article-header" placeholder="Encabezado del artículo">
+        <textarea id="article-content" placeholder="Contenido del artículo"></textarea>
+        <label for="article-image">Imagen del Artículo</label>
+        <input type="file" id="article-image" accept="image/*">
+        <img id="article-image-preview" style="width: 150px; height: 150px; display: none; margin-top: 10px;" alt="Vista previa del artículo">
+        
+        <button type="submit">Guardar Artículo</button>
+    </form>
+    <div class="article-list-admin" id="article-list">
+        <!-- Artículos añadidos aparecerán aquí -->
     </div>
+</div>
 
     <script src="/Dulce_Bendicion/Js/admin.js"></script>
 </body>
 </html>
+

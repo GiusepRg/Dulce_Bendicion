@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Políticas - Dulce Bendición</title>
+    <title>Dulce Bendición - Tienda Virtual</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="icon" href="/Dulce_Bendicion/Img/logo.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/Dulce_Bendicion/Css/paginas.css">
-    <script defer src="/Dulce_Bendicion/Js/script.js"></script>
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/Dulce_Bendicion/Css/paginas.css">
+<script defer src="/Dulce_Bendicion/Js/script.js"></script>
 </head>
 <body>
-
        <!-- Cabecera -->
        <header>
         <div class="logo">
@@ -24,20 +26,16 @@
         <nav class="nav">
             <ul class="nav-list" id="nav-list">
                 <li><a href="/Dulce_Bendicion/index.html">Home</a></li>
-                
                 <li>
                     <a href="/Dulce_Bendicion/Usuario/Paginas/Productos.html">Productos</a>
                     <ul class="dropdown">
                         <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Promos.html">Promos</a></li>
-                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Pasteles.html">Pasteles</a></li>
-                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Postres.html">Postres</a></li>
+                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Reservas.html">Reservas</a></li>
+                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Eventos.html">Eventos</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="/Dulce_Bendicion/Usuario/Paginas/Blog.html">Blog</a>
-                    <ul class="dropdown">
-                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Recipes.html">Recipes</a></li>
-                    </ul>
                 </li>
                 <li>
                     <a href="/Dulce_Bendicion/Usuario/Paginas/Acerca_De_Nosotros.html">About Us</a>
@@ -49,18 +47,14 @@
                 <li><a href="/Dulce_Bendicion/Usuario/Paginas/ContactoUs.html">Contact Us</a></li>
                 <li>
                     <a href="/Dulce_Bendicion/Usuario/Paginas/FAQs.html">FAQs</a>
-                    <ul class="dropdown">
-                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/FAQs1.html">FAQ 1</a></li>
-                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/FAQs2.html">FAQ 2</a></li>
-                    </ul>
                 </li>
             </ul>
         </nav>
-        <div class="carrito">
-            <img src="/Dulce_Bendicion/Img/carrito.png" alt="Carrito de compras">
+        <div class="carrito" onclick="toggleCarrito()">
+            <img src="/Dulce_Bendicion/Img/carrito.png" alt="Carrito de compras" class="carrito-icono">
             <span class="item-count">0</span>
-            <div class="carrito-desplegable">
-                <!-- Aquí se mostrarán los productos del carrito -->
+            <div class="carrito-desplegable" id="cart-items">
+                <!-- Productos y botones se generarán dinámicamente con JavaScript -->
             </div>
         </div>
     </header>
@@ -68,43 +62,41 @@
     <!-- Sección Políticas -->
     <section class="privacypolicis-section">
         <div class="bannerPoliticas">
-            <h1>Políticas y privacidad</h1>
+            <h1>Políticas y Privacidad</h1>
         </div>
         <div class="contentPoliticas">
             <h3>Políticas de Privacidad de Dulce Bendición</h3>
-
-<p>En Dulce Bendición, nos comprometemos a proteger la privacidad de nuestros usuarios. La presente política de privacidad explica cómo recopilamos, usamos y protegemos su información personal.</p>            
-<p><h5>1. Información que Recopilamos
-    Información personal:</h5> Al registrarse en nuestro sitio web, es posible que recopilemos información como su nombre, dirección de correo electrónico, número de teléfono y dirección de envío.
-    Datos de navegación: También recopilamos automáticamente información sobre su visita, como su dirección IP, tipo de dispositivo, navegador y las páginas que visita en nuestro sitio.</p>
-
-<p><h5>2. Uso de la Información
-    Procesamiento de pedidos:</h5>Utilizamos su información personal para procesar y enviar sus pedidos.
-    Atención al cliente: Sus datos nos ayudan a responder a sus preguntas y brindarle una mejor experiencia.
-    Marketing: Podemos enviarle correos electrónicos promocionales y ofertas especiales si ha optado por recibir nuestras comunicaciones. Puede darse de baja en cualquier momento.</p> 
-<p><h5>3. Protección de la Información:</h5>Utilizamos medidas de seguridad físicas y electrónicas para proteger su información personal. Sin embargo, ningún sistema es completamente seguro, y no podemos garantizar la seguridad absoluta de sus datos.</p>
-
-<p><h5>4. Compartir Información con Terceros</h5>Proveedores de servicios: Podemos compartir su información con proveedores de servicios externos que nos ayudan a procesar pagos, enviar productos o proporcionar soporte.
-Cumplimiento legal: En caso de ser requerido por ley, podemos compartir su información para cumplir con regulaciones o responder a un proceso legal.</p>
-
-<p><h5>5. Cookies y Tecnología Similar:</h5>Nuestro sitio web utiliza cookies para mejorar su experiencia de navegación. Las cookies nos ayudan a entender sus preferencias y personalizar nuestro contenido en función de sus intereses.</p>
-
-<p "><h5>6. Derechos del Usuario</h5>Usted tiene derecho a acceder, actualizar y eliminar su información personal almacenada en nuestro sistema. Si desea ejercer estos derechos, puede ponerse en contacto con nosotros en <a id="Linkss" href="mailto:Dulce_Bendicion@Gmail.com.">Dulce_Bendicion@Gmail.com.</a></p>
-
-<p><h5>7. Enlaces a Sitios de Terceros</h5>Nuestro sitio puede contener enlaces a otros sitios web. No somos responsables de las prácticas de privacidad de esos sitios y recomendamos leer sus políticas de privacidad.</p>
-
-<p><h5>8. Cambios en Nuestra Política de Privacidad</h5>Nos reservamos el derecho de modificar esta política de privacidad en cualquier momento. Cualquier cambio se publicará en esta página, y le recomendamos que la revise periódicamente.</p>
-
-<p><h5>9. Contacto</h5>Si tiene alguna pregunta sobre esta política de privacidad, puede ponerse en contacto con nosotros en <a id="Linkss"href="mailto:Dulce_Bendicion@gmail.com">Dulce_Bendicion@gmail.com</a> o llamando a <a id="Linkss" href="https://wa.me/573108587927">+57 310 8587927</a>.</p>
-
+    
+            <p class="parrafoPoliticas">En Dulce Bendición, nos comprometemos a proteger la privacidad de nuestros usuarios. La presente política de privacidad explica cómo recopilamos, usamos y protegemos su información personal.</p>            
+            
+            <p class="parrafoPoliticas"><strong>1. Información que Recopilamos:</strong> Al registrarse en nuestro sitio web, es posible que recopilemos información como su nombre, dirección de correo electrónico, número de teléfono y dirección de envío. También recopilamos automáticamente información sobre su visita, como su dirección IP, tipo de dispositivo, navegador y las páginas que visita en nuestro sitio.</p>
+    
+            <p class="parrafoPoliticas"><strong>2. Uso de la Información:</strong> Utilizamos su información personal para procesar y enviar sus pedidos, responder a sus preguntas, y brindarle una mejor experiencia. También podemos enviarle correos electrónicos promocionales y ofertas especiales si ha optado por recibir nuestras comunicaciones. Puede darse de baja en cualquier momento.</p> 
+    
+            <p class="parrafoPoliticas"><strong>3. Protección de la Información:</strong> Utilizamos medidas de seguridad físicas y electrónicas para proteger su información personal. Sin embargo, ningún sistema es completamente seguro, y no podemos garantizar la seguridad absoluta de sus datos.</p>
+    
+            <p class="parrafoPoliticas"><strong>4. Compartir Información con Terceros:</strong> Podemos compartir su información con proveedores de servicios externos que nos ayudan a procesar pagos, enviar productos o proporcionar soporte. En caso de ser requerido por ley, también podemos compartir su información para cumplir con regulaciones o responder a un proceso legal.</p>
+    
+            <p class="parrafoPoliticas"><strong>5. Cookies y Tecnología Similar:</strong> Nuestro sitio web utiliza cookies para mejorar su experiencia de navegación. Las cookies nos ayudan a entender sus preferencias y personalizar nuestro contenido en función de sus intereses.</p>
+    
+            <p class="parrafoPoliticas"><strong>6. Derechos del Usuario:</strong> Usted tiene derecho a acceder, actualizar y eliminar su información personal almacenada en nuestro sistema. Si desea ejercer estos derechos, puede ponerse en contacto con nosotros en <a id="Linkss" href="mailto:Dulce_Bendicion@Gmail.com">Dulce_Bendicion@Gmail.com</a>.</p>
+    
+            <p class="parrafoPoliticas"><strong>7. Enlaces a Sitios de Terceros:</strong> Nuestro sitio puede contener enlaces a otros sitios web. No somos responsables de las prácticas de privacidad de esos sitios y recomendamos leer sus políticas de privacidad.</p>
+    
+            <p class="parrafoPoliticas"><strong>8. Cambios en Nuestra Política de Privacidad:</strong> Nos reservamos el derecho de modificar esta política de privacidad en cualquier momento. Cualquier cambio se publicará en esta página, y le recomendamos que la revise periódicamente.</p>
+    
+            <p class="parrafoPoliticas"><strong>9. Contacto:</strong> Si tiene alguna pregunta sobre esta política de privacidad, puede ponerse en contacto con nosotros en <a id="Linkss" href="mailto:Dulce_Bendicion@gmail.com">Dulce_Bendicion@gmail.com</a> o llamando a <a id="Linkss" href="https://wa.me/573108587927">+57 310 8587927</a>.</p>
+        </div>
+    </section>
+    
         </div>
     </section>
     <footer>
         <div class="footer-content">
             <div class="social-media">
-                <a href="#"><img src="/Dulce_Bendicion/Img/FbLogo.png" alt="Facebook"></a>
-                <a href="#"><img src="/Dulce_Bendicion/Img/IgLogo.png" alt="Instagram"></a>
-                <a href="#"><img src="/Dulce_Bendicion/Img/WPLogo.png" alt="Whatsapp"></a>
+                <a href="https://www.facebook.com/p/Dulce-Bendici%C3%B3n-100064189715887/?locale=es_LA"><img src="/Dulce_Bendicion/Img/FbLogo.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/dulcebendiciontest/profilecard/?igsh=NDNjazQ1ZDF6eHN1"><img src="/Dulce_Bendicion/Img/IgLogo.png" alt="Instagram"></a>
+                <a href="https://wa.me/573108587927"><img src="/Dulce_Bendicion/Img/WPLogo.png" alt="Whatsapp"></a>
             </div>
             <div class="footer-links">
                 <h4>Use cases</h4>
@@ -117,8 +109,8 @@ Cumplimiento legal: En caso de ser requerido por ley, podemos compartir su infor
             <div class="footer-links">
                 <h4>Explore</h4>
                 <ul>
-                    <li><a href="#">Designers</a></li>
-                    <li><a href="#">Prototyping</a></li>
+                    <li><a href="/Dulce_Bendicion/Usuario/Paginas/Developers.html">Designers</a></li>
+                    <li><a href="/Dulce_Bendicion/Img/Proto.png">Prototyping</a></li>
                     <li><a href="#">Development features</a></li>
                 </ul>
             </div>
@@ -126,15 +118,15 @@ Cumplimiento legal: En caso de ser requerido por ley, podemos compartir su infor
                 <h4>Resources</h4>
                 <ul>
                     <li><a href="/Dulce_Bendicion/Usuario/Paginas/Blog.html">Blog</a></li>
-                    <li><a href="#">Best practices</a></li>
-                    <li><a href="#">Color wheel</a></li>
+                    <li><a href="https://giuseprg.itch.io/">😌</a></li>
+                    <li><a href="/Dulce_Bendicion/Img/COLORPALETTE.jpg">Color wheel</a></li>
                 </ul>
             </div>
             <div class="footer-links">
                 <h4>Políticas y Privacidad</h4>
                 <ul>
-                    <li><a href="#">Our Policies</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="/Dulce_Bendicion/Usuario/Paginas/Politicas.html">Our Policies</a></li>
+                    <li><a href="/Dulce_Bendicion/Usuario/Paginas/Terms&Conditions.html">Terms & Conditions</a></li>
                 </ul>
             </div>
         </div>

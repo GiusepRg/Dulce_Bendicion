@@ -9,8 +9,8 @@
     <link rel="icon" href="/Dulce_Bendicion/Img/logo.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/Dulce_Bendicion/Css/StyleIndex.css">
-<script defer src="/Dulce_Bendicion/Js/Index.js"></script>
+<link rel="stylesheet" href="/Dulce_Bendicion/Css/paginas.css">
+<script defer src="/Dulce_Bendicion/Js/script.js"></script>
 </head>
 <body>
     
@@ -31,15 +31,12 @@
                     <a href="/Dulce_Bendicion/Usuario/Paginas/Productos.html">Productos</a>
                     <ul class="dropdown">
                         <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Promos.html">Promos</a></li>
-                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Pasteles.html">Pasteles</a></li>
-                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Postres.html">Postres</a></li>
+                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Reservas.html">Reservas</a></li>
+                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Eventos.html">Eventos</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="/Dulce_Bendicion/Usuario/Paginas/Blog.html">Blog</a>
-                    <ul class="dropdown">
-                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Recipes.html">Recipes</a></li>
-                    </ul>
                 </li>
                 <li>
                     <a href="/Dulce_Bendicion/Usuario/Paginas/Acerca_De_Nosotros.html">About Us</a>
@@ -51,65 +48,89 @@
                 <li><a href="/Dulce_Bendicion/Usuario/Paginas/ContactoUs.html">Contact Us</a></li>
                 <li>
                     <a href="/Dulce_Bendicion/Usuario/Paginas/FAQs.html">FAQs</a>
-                    <ul class="dropdown">
-                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/FAQs1.html">FAQ 1</a></li>
-                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/FAQs2.html">FAQ 2</a></li>
-                    </ul>
                 </li>
             </ul>
         </nav>
-        <div class="carrito">
-            <img src="/Dulce_Bendicion/Img/carrito.png" alt="Carrito de compras">
+        <div class="carrito" onclick="toggleCarrito()">
+            <img src="/Dulce_Bendicion/Img/carrito.png" alt="Carrito de compras" class="carrito-icono">
             <span class="item-count">0</span>
-            <div class="carrito-desplegable">
-                <!-- Aquí se mostrarán los productos del carrito -->
+            <div class="carrito-desplegable" id="cart-items">
+                <!-- Productos y botones se generarán dinámicamente con JavaScript -->
             </div>
         </div>
     </header>
-<footer>
-    <div class="footer-content">
-        <div class="social-media">
-            <a href="#"><img src="/Dulce_Bendicion/Img/FbLogo.png" alt="Facebook"></a>
-            <a href="#"><img src="/Dulce_Bendicion/Img/IgLogo.png" alt="Instagram"></a>
-            <a href="#"><img src="/Dulce_Bendicion/Img/WPLogo.png" alt="Whatsapp"></a>
-        </div>
-        <div class="footer-links">
-            <h4>Use cases</h4>
-            <ul>
-                <li><a href="#">UI design</a></li>
-                <li><a href="#">UX design</a></li>
-                <li><a href="#">Wireframing</a></li>
-            </ul>
-        </div>
-        <div class="footer-links">
-            <h4>Explore</h4>
-            <ul>
-                <li><a href="#">Designers</a></li>
-                <li><a href="#">Prototyping</a></li>
-                <li><a href="#">Development features</a></li>
-            </ul>
-        </div>
-        <div class="footer-links">
-            <h4>Resources</h4>
-            <ul>
-                <li><a href="/Dulce_Bendicion/Usuario/Paginas/Blog.html">Blog</a></li>
-                <li><a href="#">Best practices</a></li>
-                <li><a href="#">Color wheel</a></li>
-            </ul>
-        </div>
-        <div class="footer-links">
-            <h4>Políticas y Privacidad</h4>
-            <ul>
-                <li><a href="#">Our Policies</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
-            </ul>
-        </div>
+    <!-- Sección Términos y Condiciones -->
+<section class="terms-section">
+    <div class="bannerTerms">
+        <h1>Términos y Condiciones</h1>
     </div>
+    <div class="contentTerms">
+        <h3>Términos y Condiciones de Dulce Bendición</h3>
+        
+        <p class="parrafasTerminos"><strong>1. Aceptación de los Términos:</strong> Al acceder y utilizar el sitio web de Dulce Bendición, usted acepta estar sujeto a estos términos y condiciones. Si no está de acuerdo con alguna parte de estos términos, debe abstenerse de utilizar nuestros servicios.</p>
+        
+        <p class="parrafasTerminos"><strong>2. Productos y Servicios:</strong> Dulce Bendición se especializa en la venta de productos cosméticos naturales. Nos esforzamos por garantizar que toda la información del producto sea precisa; sin embargo, no garantizamos que las descripciones de los productos sean completamente exactas, completas o libres de errores.</p>
+        
+        <p class="parrafasTerminos"><strong>3. Uso del Sitio Web:</strong> Usted se compromete a utilizar el sitio de forma responsable y de conformidad con la ley. Está prohibido el uso de este sitio para fines ilegales o no autorizados.</p>
+        
+        <p class="parrafasTerminos"><strong>4. Políticas de Pago:</strong> Todos los pagos deben realizarse de acuerdo con las instrucciones proporcionadas en el sitio. Nos reservamos el derecho de cancelar cualquier pedido en caso de problemas con el pago.</p>
+        
+        <p class="parrafasTerminos"><strong>5. Envíos y Entregas:</strong> Los tiempos de envío y entrega son estimaciones y pueden variar. No somos responsables de retrasos causados por factores externos. En caso de problemas con la entrega, póngase en contacto con nuestro equipo de soporte.</p>
+        
+        <p class="parrafasTerminos"><strong>6. Devoluciones y Reembolsos:</strong> Consulte nuestra política de devoluciones para detalles sobre el proceso de reembolso. Nos reservamos el derecho de rechazar devoluciones que no cumplan con nuestras políticas.</p>
+        
+        <p class="parrafasTerminos"><strong>7. Propiedad Intelectual:</strong> Todo el contenido de este sitio, incluidos textos, imágenes y logotipos, es propiedad de Dulce Bendición y está protegido por derechos de autor. Queda prohibida la reproducción sin autorización.</p>
+        
+        <p class="parrafasTerminos"><strong>8. Cambios en los Términos:</strong> Dulce Bendición se reserva el derecho de modificar estos términos en cualquier momento. Le recomendamos que revise esta página periódicamente para estar informado sobre cualquier cambio.</p>
+        
+        <p class="parrafasTerminos"><strong>9. Contacto:</strong> Para cualquier pregunta o inquietud sobre estos términos, puede contactarnos en <a href="mailto:Dulce_Bendicion@gmail.com" id="Linkss">Dulce_Bendicion@gmail.com</a> o llamando al <a href="https://wa.me/573108587927" id="Linkss">+57 310 8587927</a>.</p>
+    </div>
+</section>
 
-    <!-- Derechos reservados -->
-    <div class="derechos-reservados">
-        <p> Todos los derechos reservados &copy; GiusepRg y Catalina Torres</p>
-    </div>
-</footer>
+    <footer>
+        <div class="footer-content">
+            <div class="social-media">
+                <a href="https://www.facebook.com/p/Dulce-Bendici%C3%B3n-100064189715887/?locale=es_LA"><img src="/Dulce_Bendicion/Img/FbLogo.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/dulcebendiciontest/profilecard/?igsh=NDNjazQ1ZDF6eHN1"><img src="/Dulce_Bendicion/Img/IgLogo.png" alt="Instagram"></a>
+                <a href="https://wa.me/573108587927"><img src="/Dulce_Bendicion/Img/WPLogo.png" alt="Whatsapp"></a>
+            </div>
+            <div class="footer-links">
+                <h4>Use cases</h4>
+                <ul>
+                    <li><a href="#">UI design</a></li>
+                    <li><a href="#">UX design</a></li>
+                    <li><a href="#">Wireframing</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="/Dulce_Bendicion/Usuario/Paginas/Developers.html">Designers</a></li>
+                    <li><a href="/Dulce_Bendicion/Img/Proto.png">Prototyping</a></li>
+                    <li><a href="#">Development features</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="/Dulce_Bendicion/Usuario/Paginas/Blog.html">Blog</a></li>
+                    <li><a href="https://giuseprg.itch.io/">😌</a></li>
+                    <li><a href="/Dulce_Bendicion/Img/COLORPALETTE.jpg">Color wheel</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Políticas y Privacidad</h4>
+                <ul>
+                    <li><a href="/Dulce_Bendicion/Usuario/Paginas/Politicas.html">Our Policies</a></li>
+                    <li><a href="/Dulce_Bendicion/Usuario/Paginas/Terms&Conditions.html">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+    
+        <!-- Derechos reservados -->
+        <div class="derechos-reservados">
+            <p> Todos los derechos reservados &copy; GiusepRg y Catalina Torres</p>
+        </div>
+    </footer>
 </body>
 </html>

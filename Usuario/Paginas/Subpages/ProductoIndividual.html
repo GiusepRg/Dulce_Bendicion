@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/Dulce_Bendicion/Css/paginas.css">
 <script defer src="/Dulce_Bendicion/Js/script.js"></script>
-<script src="/Dulce_Bendicion/Js/Producto.Js"></script>
+<script defer src="/Dulce_Bendicion/Js/Producto.Js"></script>
 </head>
 <body>
     
@@ -59,15 +59,13 @@
                 </li>
             </ul>
         </nav>
-        <div class="carrito">
-            <img src="/Dulce_Bendicion/Img/carrito.png" alt="Carrito de compras">
-            <span class="item-count"></span>
+        <div class="carrito" onclick="toggleCarrito()">
+            <img src="/Dulce_Bendicion/Img/carrito.png" alt="Carrito de compras" class="carrito-icono">
+            <span class="item-count">0</span>
             <div class="carrito-desplegable" id="cart-items">
-                <!-- Los productos se insertarán aquí dinámicamente desde el JS -->
+                <!-- Productos y botones se generarán dinámicamente con JavaScript -->
             </div>
         </div>
-        
-
     </header>
 
         <div class="product-detail">
@@ -151,6 +149,7 @@
     <div class="derechos-reservados">
         <p> Todos los derechos reservados &copy; GiusepRg y Catalina Torres</p>
     </div>
+
 </footer>
 </body>
 </html>

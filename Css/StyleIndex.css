@@ -7,11 +7,13 @@
 }
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #fdf6f6;
-    color: #b56576;
+    background-color: #ffffff;
+    color: #ffffffc7;
     line-height: 1.6;
     scroll-behavior: smooth;
+    /*cursor: url(/Dulce_Bendicion/Img/Click.png), pointer;*/
 }
+
 /*Scroll */
 ::-webkit-scrollbar {   
     display: none;
@@ -32,7 +34,7 @@ header {
     align-items: center;
     background-color: #FCD0D8;
     padding: 10px 20px;
-    position: fixed;
+    position: ab;
     width: 100%;
     z-index: 1000;
     top: 0;
@@ -40,7 +42,28 @@ header {
     position: sticky;
     top: 0;
 }
+/* Video de fondo */
+.background-video {
+    position: absolute; /* Fijo para que el video permanezca en el fondo al hacer scroll */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1; /* Coloca el video debajo de todos los demás elementos */
+    opacity: 0.8; /* Ajusta la opacidad si necesitas que el contenido sea más legible */
+}
 
+/* Superposición del video para darle efecto de oscuridad */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad según tus preferencias */
+    z-index: 1; /* La superposición está por encima del video pero debajo del contenido */
+}
 .logo img {
     width: 60px;
 }
@@ -210,80 +233,171 @@ header {
 .carrito {
     position: relative;
     cursor: pointer;
+    
 }
 
-/* Estilo de la imagen del carrito */
-.carrito img {
-    width: 30px;
+/* Estilos generales para el carrito */
+.carrito {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
-.carrito .item-count {
+.carrito-icono {
+    width: 28px;
+    height: 28px;
+}
+
+.item-count {
     position: absolute;
-    top: -10px;
-    right: -10px;
-    background-color: #f68b82;
+    top: -6px;
+    right: -6px;
+    background-color: #ff6584;
     color: #fff;
-    padding: 5px;
+    font-size: 11px;
+    padding: 3px 6px;
     border-radius: 50%;
-    font-size: 12px;
+    font-weight: bold;
 }
 
-/* Contenedor desplegable del carrito */
 .carrito-desplegable {
     position: absolute;
-    top: 100%;
-    right: 0;
-    width: 250px;
-    max-height: 300px;
+    top: 45px;
+    right: 10%;
+    width: 200px;
+    max-width: 300px;
+    max-height: 400px;
     overflow-y: auto;
     background: #fff;
-    border: 1px solid #ddd;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    padding: 12px;
     display: none;
-    padding: 10px;
     z-index: 100;
 }
 
-/* Mostrar el carrito cuando se pasa el mouse por encima */
-.carrito:hover .carrito-desplegable {
-    display: block;
+/* Ajuste responsive del carrito desplegable */
+@media (max-width: 768px) {
+    .carrito-desplegable {
+        right: 10%;
+        width: 200px;
+        max-width: none;
+    }
 }
 
-/* Estilo de cada producto en el carrito desplegable */
+/* Producto individual en el carrito */
 .producto-carrito {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    gap: 8px;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.producto-carrito:last-child {
+    border-bottom: none;
+}
+
+.carrito-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.carrito-info {
+    flex: 1;
+    font-size: 13px;
+    color: #444;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.carrito-info p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+/* Botón de eliminar producto */
+.eliminar {
+    background-color: #ff6584;
+    color: #fff;
+    border: none;
+    padding: 4px 6px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 10px ;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.eliminar:hover {
+    background-color: #ff4b70;
+}
+
+/* Botones de acción */
+.botones-acciones {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
+    margin-top: 10px;
+    
 }
 
-.producto-carrito img {
-    width: 40px;
-    height: auto;
-    margin-right: 10px;
-}
-
-.producto-carrito p {
-    margin: 0;
-    font-size: 14px;
-    flex: 1;
-}
-
-/* Estilo del botón de eliminar */
-.eliminar {
-    background: none;
+.vaciar-carrito {
+    background-color: #ff6584;
+    color: #fff;
     border: none;
-    color: #fff3f1;
+    padding: 8px;
+    font-size: 13px;
     cursor: pointer;
-    font-size: 12px;
-    margin-left: 10px;
+    border-radius: 5px;
+    flex: 1;
+    text-align: center;
+    margin-right: 5px;
 }
+
+.vaciar-carrito:hover {
+    background-color: #ff4b70;
+}
+
+/* Botón Ir al Carrito con espacio para icono */
+.ir-al-carrito {
+
+    background-color: #ff6584; /* Color rosa */
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 5px; /* Añadido padding horizontal */
+    border-radius: 10px; /* Borde redondeado */
+    color: white; /* Color del texto */
+    font-weight: bold; /* Texto en negrita */
+}
+
+.ir-al-carrito img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px; /* Espacio entre el ícono y el texto */
+}
+
+.ir-al-carrito:hover {
+    background-color: #ffd3e5; /* Color rosa más oscuro al pasar el mouse */
+}
+
+
 
 /* Animación de bienvenida */
 .inicio {
     position: relative;
-    background: linear-gradient(to right, #edc2cc, #ebeaea);
+    background: linear-gradient(to right, #ff656577, #00000031);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -323,7 +437,7 @@ header {
 }
 
 .boton:hover {
-    background-color: #da6a96;
+    background-color: #f70f6c;
 }
 
 /* Animación de la dona */
@@ -339,7 +453,7 @@ header {
 /* Ajustes de tamaño para pantallas pequeñas */
 @media (max-width: 768px) {
     .inicio h1 {
-        font-size: 2.5rem; /* Reducir el tamaño del texto */
+        font-size: 3rem; /* Reducir el tamaño del texto */
         z-index: 2;
     }
 
@@ -358,7 +472,7 @@ header {
 
 @media (max-width: 480px) {
     .inicio h1 {
-        font-size: 2rem; /* Ajustar aún más para pantallas muy pequeñas */
+        font-size: 3rem; /* Ajustar aún más para pantallas muy pequeñas */
     }
 
     .inicio p {

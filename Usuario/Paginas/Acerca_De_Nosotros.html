@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acerca de Nosotros - Dulce Bendición</title>
-    <link rel="stylesheet" href="/Dulce_Bendicion/Css/paginas.css">
-    <script defer src="/Dulce_Bendicion/Js/script.js"></script>
+    <title>Dulce Bendición - Tienda Virtual</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="icon" href="/Dulce_Bendicion/Img/logo.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Rochester&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=PT+Serif+Caption:ital@0;1&family=Rochester&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/Dulce_Bendicion/Css/paginas.css">
+<script defer src="/Dulce_Bendicion/Js/script.js"></script>
 </head>
 <body>
 
@@ -26,20 +27,16 @@
     <nav class="nav">
         <ul class="nav-list" id="nav-list">
             <li><a href="/Dulce_Bendicion/index.html">Home</a></li>
-            
             <li>
                 <a href="/Dulce_Bendicion/Usuario/Paginas/Productos.html">Productos</a>
                 <ul class="dropdown">
                     <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Promos.html">Promos</a></li>
-                    <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Pasteles.html">Pasteles</a></li>
-                    <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Postres.html">Postres</a></li>
+                    <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Reservas.html">Reservas</a></li>
+                    <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Eventos.html">Eventos</a></li>
                 </ul>
             </li>
             <li>
                 <a href="/Dulce_Bendicion/Usuario/Paginas/Blog.html">Blog</a>
-                <ul class="dropdown">
-                    <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Recipes.html">Recipes</a></li>
-                </ul>
             </li>
             <li>
                 <a href="/Dulce_Bendicion/Usuario/Paginas/Acerca_De_Nosotros.html">About Us</a>
@@ -51,34 +48,19 @@
             <li><a href="/Dulce_Bendicion/Usuario/Paginas/ContactoUs.html">Contact Us</a></li>
             <li>
                 <a href="/Dulce_Bendicion/Usuario/Paginas/FAQs.html">FAQs</a>
-                <ul class="dropdown">
-                    <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/FAQs1.html">FAQ 1</a></li>
-                    <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/FAQs2.html">FAQ 2</a></li>
-                </ul>
             </li>
         </ul>
     </nav>
-    <div class="carrito">
-        <img src="/Dulce_Bendicion/Img/carrito.png" alt="Carrito de compras">
+    <div class="carrito" onclick="toggleCarrito()">
+        <img src="/Dulce_Bendicion/Img/carrito.png" alt="Carrito de compras" class="carrito-icono">
         <span class="item-count">0</span>
-        <div class="carrito-desplegable">
-            <!-- Aquí se mostrarán los productos del carrito -->
+        <div class="carrito-desplegable" id="cart-items">
+            <!-- Productos y botones se generarán dinámicamente con JavaScript -->
         </div>
     </div>
 </header>
     <!-- Sección Acerca de Nosotros -->
     <section class="nosotros">
-       <!--  <h2>Nuestra Historia</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-
-        <h2>Misión</h2>
-        <p>Nuestra misión es...</p>
-
-        <h2>Visión</h2>
-        <p>Nuestra visión es...</p>
-
-        <h2>El Equipo</h2>-->
- 
         <main>
             <section class="hero">
                 <Div class="ImgLogo"><img src="/Dulce_Bendicion/Img/logo.png" alt="Dulce Bendición - Postres y Ponqués" >
@@ -107,7 +89,7 @@
                     </div>
                     <div class="cardEquipo">
                         <img src="/Dulce_Bendicion/Img/Dueñas/silvi.jpg" alt="Torta de Almojabana">
-                        <h3>Torta de Almojabana</h3>
+                        <h3>Silvia Margarita Escuderos </h3>
                         <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.</p>
                     </div>
                 </div>
@@ -139,30 +121,14 @@
                     </p>
                 </section>
             </div>
-         <!--   <section class="productos">
-                <h2>Tortas y Deli</h2>
-                <div class="productos-cards">
-                    <div class="producto-card">
-                        <img src="product1.png" alt="Postre">
-                        <h3>Postre</h3>
-                        <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.</p>
-                        <button>Button</button>
-                    </div>
-                    <div class="producto-card">
-                        <img src="product2.png" alt="Croissant">
-                        <h3>Croissant</h3>
-                        <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.</p>
-                        <button>Button</button>
-                    </div>
-                </div>
-            </section>-->
+       
         </main>
         <footer>
             <div class="footer-content">
                 <div class="social-media">
-                    <a href="#"><img src="/Dulce_Bendicion/Img/FbLogo.png" alt="Facebook"></a>
-                    <a href="#"><img src="/Dulce_Bendicion/Img/IgLogo.png" alt="Instagram"></a>
-                    <a href="#"><img src="/Dulce_Bendicion/Img/WPLogo.png" alt="Whatsapp"></a>
+                    <a href="https://www.facebook.com/p/Dulce-Bendici%C3%B3n-100064189715887/?locale=es_LA"><img src="/Dulce_Bendicion/Img/FbLogo.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/dulcebendiciontest/profilecard/?igsh=NDNjazQ1ZDF6eHN1"><img src="/Dulce_Bendicion/Img/IgLogo.png" alt="Instagram"></a>
+                    <a href="https://wa.me/573108587927"><img src="/Dulce_Bendicion/Img/WPLogo.png" alt="Whatsapp"></a>
                 </div>
                 <div class="footer-links">
                     <h4>Use cases</h4>
@@ -175,8 +141,8 @@
                 <div class="footer-links">
                     <h4>Explore</h4>
                     <ul>
-                        <li><a href="#">Designers</a></li>
-                        <li><a href="#">Prototyping</a></li>
+                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Developers.html">Designers</a></li>
+                        <li><a href="/Dulce_Bendicion/Img/Proto.png">Prototyping</a></li>
                         <li><a href="#">Development features</a></li>
                     </ul>
                 </div>
@@ -184,15 +150,15 @@
                     <h4>Resources</h4>
                     <ul>
                         <li><a href="/Dulce_Bendicion/Usuario/Paginas/Blog.html">Blog</a></li>
-                        <li><a href="#">Best practices</a></li>
-                        <li><a href="#">Color wheel</a></li>
+                        <li><a href="https://giuseprg.itch.io/">😌</a></li>
+                        <li><a href="/Dulce_Bendicion/Img/COLORPALETTE.jpg">Color wheel</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>Políticas y Privacidad</h4>
                     <ul>
-                        <li><a href="#">Our Policies</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Politicas.html">Our Policies</a></li>
+                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Terms&Conditions.html">Terms & Conditions</a></li>
                     </ul>
                 </div>
             </div>

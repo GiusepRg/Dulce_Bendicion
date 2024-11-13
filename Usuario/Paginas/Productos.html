@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos - Dulce Bendición</title>
-    <link rel="stylesheet" href="/Dulce_Bendicion/Css/paginas.css">
-    <script defer src="/Dulce_Bendicion/Js/script.js"></script>
-    <script src="/Dulce_Bendicion/Js/productos.js"></script>
+    <title>Dulce Bendición - Tienda Virtual</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="icon" href="/Dulce_Bendicion/Img/logo.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/Dulce_Bendicion/Css/paginas.css">
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+
+<!-- Swiper JS -->
+
+<script defer src="/Dulce_Bendicion/Js/productos.js"></script>
+<script defer src="/Dulce_Bendicion/Js/script.js"></script>
 </head>
 <body>
 
@@ -29,15 +38,12 @@
                     <a href="/Dulce_Bendicion/Usuario/Paginas/Productos.html">Productos</a>
                     <ul class="dropdown">
                         <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Promos.html">Promos</a></li>
-                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Pasteles.html">Pasteles</a></li>
-                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Postres.html">Postres</a></li>
+                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Reservas.html">Reservas</a></li>
+                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Eventos.html">Eventos</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="/Dulce_Bendicion/Usuario/Paginas/Blog.html">Blog</a>
-                    <ul class="dropdown">
-                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Recipes.html">Recipes</a></li>
-                    </ul>
                 </li>
                 <li>
                     <a href="/Dulce_Bendicion/Usuario/Paginas/Acerca_De_Nosotros.html">About Us</a>
@@ -49,69 +55,108 @@
                 <li><a href="/Dulce_Bendicion/Usuario/Paginas/ContactoUs.html">Contact Us</a></li>
                 <li>
                     <a href="/Dulce_Bendicion/Usuario/Paginas/FAQs.html">FAQs</a>
-                    <ul class="dropdown">
-                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/FAQs1.html">FAQ 1</a></li>
-                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/FAQs2.html">FAQ 2</a></li>
-                    </ul>
                 </li>
             </ul>
         </nav>
-        <div class="carrito">
-            <img src="/Dulce_Bendicion/Img/carrito.png" alt="Carrito de compras">
-            <span class="item-count"></span>
+        <div class="carrito" onclick="toggleCarrito()">
+            <img src="/Dulce_Bendicion/Img/carrito.png" alt="Carrito de compras" class="carrito-icono">
+            <span class="item-count">0</span>
             <div class="carrito-desplegable" id="cart-items">
-                <!-- Los productos se insertarán aquí dinámicamente desde el JS -->
+                <!-- Productos y botones se generarán dinámicamente con JavaScript -->
             </div>
         </div>
-        
     </header>
 
-
-    <!-- Sección Productos -->
-<div class="product-container">
-    <div class="filter-sidebar">
-        <h3>Buscar productos</h3>
-        <input type="text" id="search-bar" placeholder="Buscar...">
-
-        <h3>Ordenar por</h3>
-        <select id="sort-options">
-            <option value="new">Nuevo</option>
-            <option value="price-asc">Precio Ascendente</option>
-            <option value="price-desc">Precio Descendente</option>
-            <option value="rating">Valoración</option>
-        </select>
-
-        <h3>Keywords</h3>
-        <div class="filter-tags">
-            <span class="filter-tag" data-tag="Spring">Spring</span>
-            <span class="filter-tag" data-tag="Smart">Smart</span>
-            <span class="filter-tag" data-tag="Modern">Modern</span>
-            <!-- Añadir más etiquetas según lo necesites -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!-- Añade aquí tus imágenes o contenido de cada slide -->
+            <div class="swiper-slide">
+                <img src="/Dulce_Bendicion/Img/Carrusel/Cupcakes.webp" alt="Imagen 1">
+            </div>
+            <div class="swiper-slide">
+                <img src="/Dulce_Bendicion/Img/Carrusel/Cookies.webp" alt="Imagen 2">
+            </div>
+            <div class="swiper-slide">
+                <img src="/Dulce_Bendicion/Img/Carrusel/Helado.webp" alt="Imagen 3">
+            </div>
+            <!-- Agrega más slides según sea necesario -->
         </div>
-        
-        <h3>Categorías</h3>
-        <label><input type="checkbox" name="category" value="pasteles"> Pasteles</label>
-        <label><input type="checkbox" name="category" value="tortas"> Tortas</label>
-        <label><input type="checkbox" name="category" value="helados"> Helados</label>
-
-        <h3>Rango de Precio</h3>
-        <input type="range" id="price-range" min="0" max="100" value="0">
-        <span id="price-display">Precio: $0</span>
+        <!-- Flechas de navegación -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <!-- Paginación -->
+        <div class="swiper-pagination"></div>
     </div>
+    <!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
-    <div class="product-grid">
-        <!-- Aquí se cargarán los productos dinámicamente -->
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        loop: true,                  // Habilita el desplazamiento en bucle
+        autoplay: {
+            delay: 3000,             // Cambia cada 3 segundos
+            disableOnInteraction: false,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        grabCursor: true,            // Habilita el arrastre en PC y móviles
+        slidesPerView: 1,
+    });
+</script>
+    <div class="product-container">
+        <!-- Botón para mostrar filtros en móviles -->
+        <div class="filter-toggle" onclick="toggleFilterSidebar()">Mostrar Filtros</div>
+    
+        <!-- Barra lateral de filtros -->
+        <div class="filter-sidebar">
+            <h3>Buscar productos</h3>
+            <input type="text" id="search-bar" placeholder="Buscar...">
+    
+            <h3>Ordenar por</h3>
+            <select id="sort-options">
+                <option value="new">Nuevo</option>
+                <option value="price-asc">Precio Ascendente</option>
+                <option value="price-desc">Precio Descendente</option>
+                <option value="rating">Valoración</option>
+            </select>
+    
+            <h3>Keywords</h3>
+            <div class="filter-tags">
+                <span class="filter-tag" data-tag="Spring">Spring</span>
+                <span class="filter-tag" data-tag="Smart">Smart</span>
+                <span class="filter-tag" data-tag="Modern">Modern</span>
+            </div>
+    
+            <h3>Categorías</h3>
+            <label><input type="checkbox" name="category" value="pasteles"> Pasteles</label>
+            <label><input type="checkbox" name="category" value="tortas"> Tortas</label>
+            <label><input type="checkbox" name="category" value="helados"> Helados</label>
+    
+            <h3>Rango de Precio</h3>
+            <input type="number" id="price-min" placeholder="Mínimo" style="width: 45%;">
+            <input type="number" id="price-max" placeholder="Máximo" style="width: 45%;">
+    
+            <button class="apply-filters-btn" onclick="applyFilters()">Filter</button>
+        </div>
+    
+        <!-- Cuadrícula de productos -->
+        <div class="product-grid">
+            <!-- Los productos se cargarán aquí dinámicamente -->
+        </div>
     </div>
-</div>
-
-
     
     <footer>
         <div class="footer-content">
             <div class="social-media">
-                <a href="#"><img src="/Dulce_Bendicion/Img/FbLogo.png" alt="Facebook"></a>
-                <a href="#"><img src="/Dulce_Bendicion/Img/IgLogo.png" alt="Instagram"></a>
-                <a href="#"><img src="/Dulce_Bendicion/Img/WPLogo.png" alt="Whatsapp"></a>
+                <a href="https://www.facebook.com/p/Dulce-Bendici%C3%B3n-100064189715887/?locale=es_LA"><img src="/Dulce_Bendicion/Img/FbLogo.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/dulcebendiciontest/profilecard/?igsh=NDNjazQ1ZDF6eHN1"><img src="/Dulce_Bendicion/Img/IgLogo.png" alt="Instagram"></a>
+                <a href="https://wa.me/573108587927"><img src="/Dulce_Bendicion/Img/WPLogo.png" alt="Whatsapp"></a>
             </div>
             <div class="footer-links">
                 <h4>Use cases</h4>
@@ -124,8 +169,8 @@
             <div class="footer-links">
                 <h4>Explore</h4>
                 <ul>
-                    <li><a href="#">Designers</a></li>
-                    <li><a href="#">Prototyping</a></li>
+                    <li><a href="/Dulce_Bendicion/Usuario/Paginas/Developers.html">Designers</a></li>
+                    <li><a href="/Dulce_Bendicion/Img/Proto.png">Prototyping</a></li>
                     <li><a href="#">Development features</a></li>
                 </ul>
             </div>
@@ -133,15 +178,15 @@
                 <h4>Resources</h4>
                 <ul>
                     <li><a href="/Dulce_Bendicion/Usuario/Paginas/Blog.html">Blog</a></li>
-                    <li><a href="#">Best practices</a></li>
-                    <li><a href="#">Color wheel</a></li>
+                    <li><a href="https://giuseprg.itch.io/">😌</a></li>
+                    <li><a href="/Dulce_Bendicion/Img/COLORPALETTE.jpg">Color wheel</a></li>
                 </ul>
             </div>
             <div class="footer-links">
                 <h4>Políticas y Privacidad</h4>
                 <ul>
-                    <li><a href="#">Our Policies</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="/Dulce_Bendicion/Usuario/Paginas/Politicas.html">Our Policies</a></li>
+                    <li><a href="/Dulce_Bendicion/Usuario/Paginas/Terms&Conditions.html">Terms & Conditions</a></li>
                 </ul>
             </div>
         </div>

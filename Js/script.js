@@ -40,6 +40,12 @@ menuToggle.addEventListener('click', () => {
     menuToggle.classList.toggle('active');
 });
 
+// Función para abrir/cerrar el carrito desplegable
+function toggleCarrito() {
+    const desplegable = document.querySelector('.carrito-desplegable');
+    desplegable.style.display = desplegable.style.display === 'block' ? 'none' : 'block';
+}
+
 // Función para agregar productos al carrito
 function addToCart() {
     const quantitySelect = document.getElementById("quantity");
@@ -48,7 +54,6 @@ function addToCart() {
     const selectedQuantity = parseInt(quantitySelect.value, 10) || 1;
     const selectedSize = sizeSelect.value || "Unica";
 
-    // Obtener los detalles del producto actual
     const product = JSON.parse(localStorage.getItem("selectedProduct"));
 
     const productoCarrito = {
@@ -60,10 +65,8 @@ function addToCart() {
         image: product.image
     };
 
-    // Obtener el carrito del localStorage o inicializarlo si no existe
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-    // Verificar si el producto ya está en el carrito
     const productoExistente = carrito.find(item => item.id === productoCarrito.id && item.size === productoCarrito.size);
 
     if (productoExistente) {
@@ -72,59 +75,94 @@ function addToCart() {
         carrito.push(productoCarrito);
     }
 
-    // Guardar el carrito actualizado en localStorage
     localStorage.setItem("carrito", JSON.stringify(carrito));
-
-    // Actualizar el contador del carrito en el header
     actualizarCarrito();
 }
 
 // Función para actualizar el contenido del carrito en el header
 function actualizarCarrito() {
-    // Obtener el carrito de localStorage
     const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-    // Actualizar contador
     const contador = document.querySelector('.item-count');
-    contador.textContent = carrito.reduce((acc, producto) => acc + producto.quantity, 0);
+    if (contador) {
+        contador.textContent = carrito.reduce((acc, producto) => acc + producto.quantity, 0);
+    }
 
-    // Actualizar contenido desplegable del carrito
     const desplegable = document.querySelector('.carrito-desplegable');
-    desplegable.innerHTML = carrito.map(producto => `
-        <div class="producto-carrito">
-            <img src="${producto.image}" alt="${producto.name}" class="carrito-img">
-            <div class="carrito-info">
-                <p>${producto.name}</p>
-                <p>Tamaño: ${producto.size}</p>
-                <p>Cantidad: ${producto.quantity}</p>
-                <p>Precio: $${producto.price}</p>
+    if (desplegable) {
+        desplegable.innerHTML = carrito.map(producto => `
+            <div class="producto-carrito">
+                <img src="${producto.image}" alt="${producto.name}" class="carrito-img">
+                <div class="carrito-info">
+                    <p>${producto.name}</p>
+                    <p>${producto.size}</p>
+                    <p>${producto.quantity} x $${producto.price}</p>
+                </div>
+                <button class="eliminar" 
+                onclick="EliminarIndividual()"data-id="${producto.id}" data-size="${producto.size}">X</button>
             </div>
-            <button class="eliminar" data-id="${producto.id}" data-size="${producto.size}">X</button>
-        </div>
-    `).join('');
+        `).join('');
+
+        if (carrito.length > 0) {
+            desplegable.innerHTML += `
+                <div class="botones-acciones">
+                    <button class="vaciar-carrito" onclick="vaciarCarrito()">Eliminar Todo</button>
+                    <button class="ir-al-carrito" onclick="irAlCarrito()">
+                        <img src="/Dulce_Bendicion/Img/Cesta.png" alt="Ir al Carrito">
+                    </button>
+                </div>
+            `;
+        }
+    }
 }
 
-// Función para eliminar productos del carrito
-document.addEventListener('click', (e) => {
+// Eliminar producto individual del carrito
+function eliminarProductoIndividual(e) {
     if (e.target.classList.contains('eliminar')) {
-        const idProducto = e.target.dataset.id;
-        const sizeProducto = e.target.dataset.size;
+        const idProducto = e.target.getAttribute('data-id');
+        const sizeProducto = e.target.getAttribute('data-size');
+        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-        // Obtener el carrito de localStorage y eliminar el producto
+        // Filtrar productos que no coincidan con el id y tamaño
+        carrito = carrito.filter(producto => !(producto.id === idProducto && producto.size === sizeProducto));
+
+        // Guardar el carrito actualizado y actualizar la vista
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        actualizarCarrito();
+    }
+}
+
+// Escuchar los clics en el documento y delegar a la función de eliminación
+document.addEventListener('click', eliminarProductoIndividual);
+function EliminarIndividual() {
+    const idProducto = e.target.dataset.id;
+        const sizeProducto = e.target.dataset.size;
         let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
         carrito = carrito.filter(producto => !(producto.id === idProducto && producto.size === sizeProducto));
 
-        // Guardar el carrito actualizado en localStorage
         localStorage.setItem("carrito", JSON.stringify(carrito));
+    actualizarCarrito();
+}
+// Vaciar todo el carrito
+function vaciarCarrito() {
+    localStorage.removeItem("carrito");
+    actualizarCarrito();
+}
 
-        // Actualizar el contenido del carrito en el header
+// Ir a la página del carrito
+function irAlCarrito() {
+    window.location.href = "/Dulce_Bendicion/Usuario/Paginas/CarritoDeCompras.html";
+}
+
+// Detectar cambios en `localStorage` y actualizar el carrito
+window.addEventListener("storage", (event) => {
+    if (event.key === "carrito") {
         actualizarCarrito();
     }
 });
 
-// Inicializar el carrito en el header al cargar la página
+// Inicializar el carrito al cargar la página
 document.addEventListener("DOMContentLoaded", actualizarCarrito);
-
 
 // Enviar Formulario de Correo
 const btn = document.getElementById('button');
@@ -151,58 +189,10 @@ if (form) {
     });
 }
 
-// Simulación de artículos de blog
-const articles = [
-    {
-        title: "Artículo 1",
-        description: "Esta es una breve descripción del artículo 1. Explora más para conocer los detalles.",
-        link: "articulo1.html"
-    },
-    {
-        title: "Artículo 2",
-        description: "Una breve introducción sobre el artículo 2. Haz clic para saber más.",
-        link: "articulo2.html"
-    },
-    {
-        title: "Artículo 3",
-        description: "Descubre de qué trata el artículo 3. Haz clic para leer más.",
-        link: "articulo3.html"
-    },
-    {
-        title: "Artículo 4",
-        description: "Explora los detalles de este artículo en profundidad.",
-        link: "articulo4.html"
-    }
-];
 
-// Generar los artículos en el DOM
-const blogArticlesContainer = document.getElementById('blog-articles');
 
-if (blogArticlesContainer) {
-    articles.forEach((article, index) => {
-        const articleCard = document.createElement('div');
-        articleCard.classList.add('blog-article', 'scroll-item'); // Agregamos 'scroll-item' para que se animen al hacer scroll
-        articleCard.innerHTML = `
-            <h3>${article.title}</h3>
-            <p>${article.description}</p>
-            <button onclick="window.location.href='${article.link}'">Leer más</button>
-        `;
-        blogArticlesContainer.appendChild(articleCard);
-    });
-}
-
-// Animación de scroll para revelar artículos
-function handleScrollAnimation() {
-    const articles = document.querySelectorAll('.blog-article');
-    const triggerHeight = window.innerHeight * 0.8;
-
-    articles.forEach(article => {
-        const articleTop = article.getBoundingClientRect().top;
-        if (articleTop < triggerHeight) {
-            article.classList.add('visible');
-        }
-    });
-}
+window.addEventListener('scroll', handleScroll);
+handleScroll();
 
 // Event listener para el scroll
 window.addEventListener('scroll', handleScrollAnimation);

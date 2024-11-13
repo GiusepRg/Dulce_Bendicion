@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dulce Bendición - Tienda Virtual</title>
-    <link rel="icon" href="/Dulce_Bendicion/Img/logo.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="icon" href="/Dulce_Bendicion/Img/logo.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,11 +58,11 @@
                 </li>
             </ul>
         </nav>
-        <div class="carrito">
-            <img src="/Dulce_Bendicion/Img/carrito.png" alt="Carrito de compras">
+        <div class="carrito" onclick="toggleCarrito()">
+            <img src="/Dulce_Bendicion/Img/carrito.png" alt="Carrito de compras" class="carrito-icono">
             <span class="item-count">0</span>
-            <div class="carrito-desplegable">
-                <!-- Aquí se mostrarán los productos del carrito -->
+            <div class="carrito-desplegable" id="cart-items">
+                <!-- Productos y botones se generarán dinámicamente con JavaScript -->
             </div>
         </div>
     </header>

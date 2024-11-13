@@ -1,8 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
     const productForm = document.getElementById("product-form");
+    const articleForm = document.getElementById("article-form");
     const productList = document.getElementById("product-list");
+    const articleList = document.getElementById("article-list");
+    const productImagePreview = document.getElementById("product-image-preview");
     let editingIndex = -1;
+    let editingArticleIndex = -1;
 
+    // Función para mostrar la sección seleccionada
+    window.showSection = function(section) {
+        document.querySelectorAll('.admin-section').forEach(s => s.style.display = 'none');
+        document.getElementById(`${section}`).style.display = 'block';
+    };
+
+    // --- Productos ---
     function loadProducts() {
         productList.innerHTML = "";
         const products = JSON.parse(localStorage.getItem("products")) || [];
@@ -42,12 +53,12 @@ document.addEventListener("DOMContentLoaded", () => {
             imageUrl = await convertToBase64(imageFile);
         } else if (editingIndex >= 0) {
             const products = JSON.parse(localStorage.getItem("products")) || [];
-            imageUrl = products[editingIndex].image;
+            imageUrl = products[editingIndex].image; // Mantener la imagen previa al editar
         }
 
         const newProduct = { id, name, price, description, keywords, color, size, category, rating, image: imageUrl };
-
         const products = JSON.parse(localStorage.getItem("products")) || [];
+
         if (editingIndex >= 0) {
             products[editingIndex] = newProduct;
             editingIndex = -1;
@@ -57,9 +68,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
         localStorage.setItem("products", JSON.stringify(products));
         productForm.reset();
+        productImagePreview.style.display = 'none'; // Ocultar preview después de guardar
         loadProducts();
     });
 
+    document.getElementById("product-image").addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            convertToBase64(file).then(base64 => {
+                productImagePreview.src = base64;
+                productImagePreview.style.display = 'block';
+            });
+        }
+    });
+
+    // Función para cargar la imagen de un archivo
     function convertToBase64(file) {
         return new Promise((resolve, reject) => {
             const reader = new FileReader();
@@ -69,6 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // --- Funciones de eliminar y editar ---
     window.deleteProduct = function(index) {
         const products = JSON.parse(localStorage.getItem("products")) || [];
         products.splice(index, 1);
@@ -89,13 +113,96 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("product-size").value = product.size;
         document.getElementById("product-category").value = product.category;
         document.getElementById("product-rating").value = product.rating;
-        
-        const imagePreview = document.getElementById("image-preview");
-        imagePreview.src = product.image;
-        imagePreview.style.display = "block";
-
+        productImagePreview.src = product.image;
+        productImagePreview.style.display = 'block';
         editingIndex = index;
     };
 
+    // Función para cargar artículos desde localStorage
+    function loadArticles() {
+        articleList.innerHTML = "";
+        const articles = JSON.parse(localStorage.getItem("articles")) || [];
+        articles.forEach((article, index) => {
+            const articleCard = document.createElement("div");
+            articleCard.classList.add("article-card");
+            articleCard.innerHTML = `
+                <h3>${article.title}</h3>
+                <p>${article.header}</p>
+                <img src="${article.image}" alt="${article.title}" style="width: 150px; height: 150px;">
+                <button onclick="deleteArticle(${index})">Eliminar</button>
+                <button onclick="editArticle(${index})">Editar</button>
+            `;
+            articleList.appendChild(articleCard);
+        });
+    }
+
+    // Evento submit del formulario de artículos
+    articleForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const title = document.getElementById("article-title").value;
+        const header = document.getElementById("article-header").value;
+        const content = document.getElementById("article-content").value;
+        const imageFile = document.getElementById("article-image").files[0];
+
+        let imageUrl = "";
+        if (imageFile) {
+            imageUrl = await convertToBase64(imageFile);
+        } else if (editingArticleIndex >= 0) {
+            const articles = JSON.parse(localStorage.getItem("articles")) || [];
+            imageUrl = articles[editingArticleIndex].image;  // Mantener la imagen existente al editar
+        }
+
+        const newArticle = { title, header, content, image: imageUrl };
+        const articles = JSON.parse(localStorage.getItem("articles")) || [];
+
+        if (editingArticleIndex >= 0) {
+            articles[editingArticleIndex] = newArticle;
+            editingArticleIndex = -1;
+        } else {
+            articles.push(newArticle);
+        }
+
+        localStorage.setItem("articles", JSON.stringify(articles));
+        articleForm.reset();
+        document.getElementById("article-image-preview").style.display = "none"; // Ocultar la vista previa de la imagen
+        loadArticles();
+    });
+
+    // Convertir archivo a base64
+    async function convertToBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = (error) => reject(error);
+        });
+    }
+
+    // Función para eliminar artículo
+    window.deleteArticle = function(index) {
+        const articles = JSON.parse(localStorage.getItem("articles")) || [];
+        articles.splice(index, 1);
+        localStorage.setItem("articles", JSON.stringify(articles));
+        loadArticles();
+    };
+
+    // Función para editar artículo
+    window.editArticle = function(index) {
+        const articles = JSON.parse(localStorage.getItem("articles")) || [];
+        const article = articles[index];
+
+        document.getElementById("article-title").value = article.title;
+        document.getElementById("article-header").value = article.header;
+        document.getElementById("article-content").value = article.content;
+        document.getElementById("article-image-preview").src = article.image; // Muestra la imagen en el preview
+        document.getElementById("article-image-preview").style.display = 'block';
+        editingArticleIndex = index;
+    };
+
+
+
+    // Mostrar la sección de productos por defecto
+    showSection('product-section');
     loadProducts();
+    loadArticles();
 });

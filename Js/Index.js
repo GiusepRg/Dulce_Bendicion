@@ -34,6 +34,12 @@ navList.querySelectorAll('a').forEach(link => {
     });
 });
 
+// Función para abrir/cerrar el carrito desplegable
+function toggleCarrito() {
+    const desplegable = document.querySelector('.carrito-desplegable');
+    desplegable.style.display = desplegable.style.display === 'block' ? 'none' : 'block';
+}
+
 // Función para agregar productos al carrito
 function addToCart() {
     const quantitySelect = document.getElementById("quantity");
@@ -42,7 +48,6 @@ function addToCart() {
     const selectedQuantity = parseInt(quantitySelect.value, 10) || 1;
     const selectedSize = sizeSelect.value || "Unica";
 
-    // Obtener los detalles del producto actual
     const product = JSON.parse(localStorage.getItem("selectedProduct"));
 
     const productoCarrito = {
@@ -54,10 +59,8 @@ function addToCart() {
         image: product.image
     };
 
-    // Obtener el carrito del localStorage o inicializarlo si no existe
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-    // Verificar si el producto ya está en el carrito
     const productoExistente = carrito.find(item => item.id === productoCarrito.id && item.size === productoCarrito.size);
 
     if (productoExistente) {
@@ -66,59 +69,80 @@ function addToCart() {
         carrito.push(productoCarrito);
     }
 
-    // Guardar el carrito actualizado en localStorage
     localStorage.setItem("carrito", JSON.stringify(carrito));
-
-    // Actualizar el contador del carrito en el header
     actualizarCarrito();
 }
 
 // Función para actualizar el contenido del carrito en el header
 function actualizarCarrito() {
-    // Obtener el carrito de localStorage
     const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-    // Actualizar contador
     const contador = document.querySelector('.item-count');
-    contador.textContent = carrito.reduce((acc, producto) => acc + producto.quantity, 0);
+    if (contador) {
+        contador.textContent = carrito.reduce((acc, producto) => acc + producto.quantity, 0);
+    }
 
-    // Actualizar contenido desplegable del carrito
     const desplegable = document.querySelector('.carrito-desplegable');
-    desplegable.innerHTML = carrito.map(producto => `
-        <div class="producto-carrito">
-            <img src="${producto.image}" alt="${producto.name}" class="carrito-img">
-            <div class="carrito-info">
-                <p>${producto.name}</p>
-                <p>Tamaño: ${producto.size}</p>
-                <p>Cantidad: ${producto.quantity}</p>
-                <p>Precio: $${producto.price}</p>
+    if (desplegable) {
+        desplegable.innerHTML = carrito.map(producto => `
+            <div class="producto-carrito">
+                <img src="${producto.image}" alt="${producto.name}" class="carrito-img">
+                <div class="carrito-info">
+                    <p>${producto.name}</p>
+                    <p>${producto.size}</p>
+                    <p>${producto.quantity} x $${producto.price}</p>
+                </div>
+                <button class="eliminar" data-id="${producto.id}" data-size="${producto.size}">X</button>
             </div>
-            <button class="eliminar" data-id="${producto.id}" data-size="${producto.size}">X</button>
-        </div>
-    `).join('');
+        `).join('');
+
+        if (carrito.length > 0) {
+            desplegable.innerHTML += `
+                <div class="botones-acciones">
+                    <button class="vaciar-carrito" onclick="vaciarCarrito()">Eliminar Todo</button>
+                    <button class="ir-al-carrito" onclick="irAlCarrito()">
+                        <img src="/Dulce_Bendicion/Img/Cesta.png" alt="Ir al Carrito">
+                    </button>
+                </div>
+            `;
+        }
+    }
 }
 
-// Función para eliminar productos del carrito
+// Eliminar producto individual del carrito
 document.addEventListener('click', (e) => {
     if (e.target.classList.contains('eliminar')) {
         const idProducto = e.target.dataset.id;
         const sizeProducto = e.target.dataset.size;
 
-        // Obtener el carrito de localStorage y eliminar el producto
         let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
         carrito = carrito.filter(producto => !(producto.id === idProducto && producto.size === sizeProducto));
 
-        // Guardar el carrito actualizado en localStorage
         localStorage.setItem("carrito", JSON.stringify(carrito));
-
-        // Actualizar el contenido del carrito en el header
         actualizarCarrito();
     }
 });
 
-// Inicializar el carrito en el header al cargar la página
-document.addEventListener("DOMContentLoaded", actualizarCarrito);
+// Vaciar todo el carrito
+function vaciarCarrito() {
+    localStorage.removeItem("carrito");
+    actualizarCarrito();
+}
 
+// Ir a la página del carrito
+function irAlCarrito() {
+    window.location.href = "/Dulce_Bendicion/Usuario/Paginas/CarritoDeCompras.html";
+}
+
+// Detectar cambios en `localStorage` y actualizar el carrito
+window.addEventListener("storage", (event) => {
+    if (event.key === "carrito") {
+        actualizarCarrito();
+    }
+});
+
+// Inicializar el carrito al cargar la página
+document.addEventListener("DOMContentLoaded", actualizarCarrito);
 
 // Marquee
 const root = document.documentElement;

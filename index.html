@@ -31,8 +31,8 @@
                     <a href="/Dulce_Bendicion/Usuario/Paginas/Productos.html">Productos</a>
                     <ul class="dropdown">
                         <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Promos.html">Promos</a></li>
-                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Pasteles.html">Pasteles</a></li>
-                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Postres.html">Postres</a></li>
+                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Reservas.html">Reservas</a></li>
+                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Eventos.html">Eventos</a></li>
                     </ul>
                 </li>
                 <li>
@@ -58,17 +58,11 @@
                 </li>
             </ul>
         </nav>
-        <div class="carrito">
-            <img src="/Dulce_Bendicion/Img/carrito.png" alt="Carrito de compras">
+        <div class="carrito" onclick="toggleCarrito()">
+            <img src="/Dulce_Bendicion/Img/carrito.png" alt="Carrito de compras" class="carrito-icono">
             <span class="item-count">0</span>
-            <div class="carrito-desplegable">
-                <div class="producto-carrito">
-                    <img src="/ruta/a/imagen.jpg" alt="Producto">
-                    <p>Producto 1</p>
-                    <span>$10</span>
-                    <button class="eliminar">X</button>
-                </div>
-                <!-- Otros productos aquí -->
+            <div class="carrito-desplegable" id="cart-items">
+                <!-- Productos y botones se generarán dinámicamente con JavaScript -->
             </div>
         </div>
         
@@ -161,9 +155,9 @@
 <footer>
     <div class="footer-content">
         <div class="social-media">
-            <a href="#"><img src="/Dulce_Bendicion/Img/FbLogo.png" alt="Facebook"></a>
-            <a href="#"><img src="/Dulce_Bendicion/Img/IgLogo.png" alt="Instagram"></a>
-            <a href="#"><img src="/Dulce_Bendicion/Img/WPLogo.png" alt="Whatsapp"></a>
+            <a href="https://www.facebook.com/p/Dulce-Bendici%C3%B3n-100064189715887/?locale=es_LA"><img src="/Dulce_Bendicion/Img/FbLogo.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/dulcebendiciontest/profilecard/?igsh=NDNjazQ1ZDF6eHN1"><img src="/Dulce_Bendicion/Img/IgLogo.png" alt="Instagram"></a>
+            <a href="https://wa.me/573108587927"><img src="/Dulce_Bendicion/Img/WPLogo.png" alt="Whatsapp"></a>
         </div>
         <div class="footer-links">
             <h4>Use cases</h4>
@@ -176,7 +170,7 @@
         <div class="footer-links">
             <h4>Explore</h4>
             <ul>
-                <li><a href="#">Designers</a></li>
+                <li><a href="/Dulce_Bendicion/Usuario/Paginas/Developers.html">Designers</a></li>
                 <li><a href="#">Prototyping</a></li>
                 <li><a href="#">Development features</a></li>
             </ul>
@@ -192,7 +186,7 @@
         <div class="footer-links">
             <h4>Políticas y Privacidad</h4>
             <ul>
-                <li><a href="#">Our Policies</a></li>
+                <li><a href="/Dulce_Bendicion/Usuario/Paginas/Politicas.html">Our Policies</a></li>
                 <li><a href="/Dulce_Bendicion/Usuario/Paginas/Terms&Conditions.html">Terms & Conditions</a></li>
             </ul>
         </div>
