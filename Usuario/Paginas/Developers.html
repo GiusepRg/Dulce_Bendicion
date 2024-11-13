@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/Dulce_Bendicion/Css/paginas.css">
+<link rel="stylesheet" href="/Dulce_Bendicion/Css/dev.css">
+
 <script defer src="/Dulce_Bendicion/Js/script.js"></script>
 </head>
 <body>
@@ -30,15 +32,12 @@
                     <a href="/Dulce_Bendicion/Usuario/Paginas/Productos.html">Productos</a>
                     <ul class="dropdown">
                         <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Promos.html">Promos</a></li>
-                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Pasteles.html">Pasteles</a></li>
-                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Postres.html">Postres</a></li>
+                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Reservas.html">Reservas</a></li>
+                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Eventos.html">Eventos</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="/Dulce_Bendicion/Usuario/Paginas/Blog.html">Blog</a>
-                    <ul class="dropdown">
-                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/Recipes.html">Recipes</a></li>
-                    </ul>
                 </li>
                 <li>
                     <a href="/Dulce_Bendicion/Usuario/Paginas/Acerca_De_Nosotros.html">About Us</a>
@@ -50,10 +49,6 @@
                 <li><a href="/Dulce_Bendicion/Usuario/Paginas/ContactoUs.html">Contact Us</a></li>
                 <li>
                     <a href="/Dulce_Bendicion/Usuario/Paginas/FAQs.html">FAQs</a>
-                    <ul class="dropdown">
-                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/FAQs1.html">FAQ 1</a></li>
-                        <li><a href="/Dulce_Bendicion/Usuario/Paginas/Subpages/FAQs2.html">FAQ 2</a></li>
-                    </ul>
                 </li>
             </ul>
         </nav>
@@ -65,13 +60,48 @@
             </div>
         </div>
     </header>
-    
+    <!-- Sección de introducción tipo Vogue -->
+    <section class="intro">
+        <div class="intro-text">
+          <h2>Quiénes Somos</h2>
+          <p>Somos un equipo dedicado a crear experiencias de usuario que combinan tecnología y estilo de vanguardia.</p>
+        </div>
+        <div class="intro-images">
+          <img src="/Dulce_Bendicion/Img/Carrusel/Cata.jpg" alt="Foto del equipo" class="intro-image">
+          <img src="/Dulce_Bendicion/Img/Carrusel/Giuseppe.jpg" alt="Foto del equipo" class="intro-image">
+        </div>
+      </section>
+      
+
+  <!-- Galería de proyectos -->
+  <section class="projects">
+    <h2 class="section-title">Nuestros Proyecto</h2>
+    <div class="project-gallery">
+      <!-- Repite para cada proyecto -->
+      <div class="project">
+        <a href="/Dulce_Bendicion/index.html"><img src="/Dulce_Bendicion/Img/Portafolio.jpg" alt="Proyecto 1"></a>
+        <h3>Pagina Dulce Bendicion</h3>
+        <p>Dulce Bendición es una plataforma digital diseñada para destacar la esencia y la dedicación de una empresa comprometida con ofrecer productos de alta calidad, elaborados con ingredientes naturales y un toque artesanal. Inspirada en un diseño visual tipo portafolio de revista, la interfaz busca captar la atención de los visitantes desde el primer instante, fusionando estética moderna y funcionalidad intuitiva.</p>
+      </div>
+      <!-- Agrega más proyectos aquí -->
+    </div>
+  </section>
+
+  <!-- Testimonios con estilo de citas -->
+  <section class="testimonials">
+    <h2 class="section-title">Testimonios</h2>
+    <blockquote>
+      "Trabajar con este equipo fue una experiencia única. Mezclan creatividad con tecnología de forma magistral."
+      <cite>– Cliente destacado</cite>
+    </blockquote>
+    <!-- Agrega más citas -->
+  </section>
     <footer>
         <div class="footer-content">
             <div class="social-media">
-                <a href="#"><img src="/Dulce_Bendicion/Img/FbLogo.png" alt="Facebook"></a>
-                <a href="#"><img src="/Dulce_Bendicion/Img/IgLogo.png" alt="Instagram"></a>
-                <a href="#"><img src="/Dulce_Bendicion/Img/WPLogo.png" alt="Whatsapp"></a>
+                <a href="https://www.facebook.com/p/Dulce-Bendici%C3%B3n-100064189715887/?locale=es_LA"><img src="/Dulce_Bendicion/Img/FbLogo.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/dulcebendiciontest/profilecard/?igsh=NDNjazQ1ZDF6eHN1"><img src="/Dulce_Bendicion/Img/IgLogo.png" alt="Instagram"></a>
+                <a href="https://wa.me/573108587927"><img src="/Dulce_Bendicion/Img/WPLogo.png" alt="Whatsapp"></a>
             </div>
             <div class="footer-links">
                 <h4>Use cases</h4>
@@ -85,7 +115,7 @@
                 <h4>Explore</h4>
                 <ul>
                     <li><a href="/Dulce_Bendicion/Usuario/Paginas/Developers.html">Designers</a></li>
-                    <li><a href="#">Prototyping</a></li>
+                    <li><a href="/Dulce_Bendicion/Img/Proto.png">Prototyping</a></li>
                     <li><a href="#">Development features</a></li>
                 </ul>
             </div>
@@ -93,8 +123,8 @@
                 <h4>Resources</h4>
                 <ul>
                     <li><a href="/Dulce_Bendicion/Usuario/Paginas/Blog.html">Blog</a></li>
-                    <li><a href="#">Best practices</a></li>
-                    <li><a href="#">Color wheel</a></li>
+                    <li><a href="https://giuseprg.itch.io/">😌</a></li>
+                    <li><a href="/Dulce_Bendicion/Img/COLORPALETTE.jpg">Color wheel</a></li>
                 </ul>
             </div>
             <div class="footer-links">
@@ -105,6 +135,7 @@
                 </ul>
             </div>
         </div>
+    
         <!-- Derechos reservados -->
         <div class="derechos-reservados">
             <p> Todos los derechos reservados &copy; GiusepRg y Catalina Torres</p>

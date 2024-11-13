@@ -1908,8 +1908,8 @@ button:active {
     width: 100%;
     max-width: 1000px;
     height: 500px;
-    background: #ffffff;
-    box-shadow: 0 30px 50px #ff7676;
+    background: #ffffff00;
+    box-shadow: 0 1px 30px #ff7676;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
@@ -1965,7 +1965,9 @@ button:active {
     top: 50%;
     left: 50px;
     width: 300px;
-    color: #ffffff;
+    color: #f8f8f8;
+    background-color: #27000090;
+    border-radius: 10px;
     transform: translate(0, -50%);
     font-family: system-ui;
     display: none;
@@ -2357,5 +2359,161 @@ button:active {
     
     .parrafasTerminos {
         font-size: 0.9em;
+    }
+}
+/*EVENTOS*/
+/* Sección de video de fondo */
+.eventos-section {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Capa oscura superpuesta */
+
+.eventos-titulo {
+    position: relative;
+    z-index: 3;
+    font-size: 3em;
+    font-weight: bold;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Galería de eventos */
+.eventos-galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    background-color: #f8f8f8;
+}
+
+.evento-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.evento-item img,
+.evento-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.evento-item:hover img,
+.evento-item:hover video {
+    transform: scale(1.05);
+}
+/* Estilos para la sección de redes sociales */
+.redes-sociales {
+    text-align: center;
+    padding: 30px;
+}
+
+.redes-sociales h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.contenedor-instagram {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; /* Espaciado entre publicaciones */
+}
+
+/* Estilos para la sección de redes sociales */
+.redes-sociales {
+    text-align: center;
+    padding: 30px;
+}
+
+.redes-sociales h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.contenedor-instagram {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; /* Espaciado entre publicaciones */
+}
+
+.post-instagram {
+    max-width: 400px; /* Ajuste de ancho para que varias publicaciones quepan en línea */
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    background-color: #ffffff;
+    padding: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.post-instagram:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajustes responsive */
+/* Ajustes responsive */
+@media (max-width: 768px) {
+    .redes-sociales h2 {
+        font-size: 1.5em;
+    }
+
+    .contenedor-instagram {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .post-instagram {
+        /* Mantiene el tamaño fijo de 400px en dispositivos móviles */
+        max-width: 400px;
+        width: 400px;
+    }
+}
+.post-instagram:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+    .redes-sociales h2 {
+        font-size: 1.5em;
+    }
+
+    .contenedor-instagram {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .post-instagram {
+        max-width: 100%; /* Ajuste de ancho completo en móviles */
     }
 }

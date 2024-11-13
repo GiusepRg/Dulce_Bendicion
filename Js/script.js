@@ -1,4 +1,6 @@
 // script.js
+// Slide de productos
+
 
 // FAQS Animaciones
 document.querySelectorAll('.faq-question').forEach((question) => {
@@ -189,8 +191,42 @@ if (form) {
     });
 }
 
+////////////////////////////////
+
+// Slide de productos
+let next = document.querySelector('.next');
+let prev = document.querySelector('.prev');
+let isTransitioning = false; // Variable para controlar la transición
+
+next.addEventListener('click', function() {
+    if (isTransitioning) return; // Salir si ya está en transición
+    isTransitioning = true;
+
+    let items = document.querySelectorAll('.item');
+    document.querySelector('.slide').appendChild(items[0]);
+
+    setTimeout(() => {
+        isTransitioning = false; // Permitir clic después de la transición
+    }, 500); // Duración de la transición en milisegundos
+});
+
+prev.addEventListener('click', function() {
+    if (isTransitioning) return; // Salir si ya está en transición
+    isTransitioning = true;
+
+    let items = document.querySelectorAll('.item');
+    document.querySelector('.slide').prepend(items[items.length - 1]);
+
+    setTimeout(() => {
+        isTransitioning = false; // Permitir clic después de la transición
+    }, 500); // Duración de la transición en milisegundos
+});
+
+///////////////////////////////////////////
 
 
+
+//////////////////////////////////
 window.addEventListener('scroll', handleScroll);
 handleScroll();
 

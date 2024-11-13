@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const productForm = document.getElementById("product-form");
-    const articleForm = document.getElementById("article-form");
     const productList = document.getElementById("product-list");
+    const articleForm = document.getElementById("article-form");
     const articleList = document.getElementById("article-list");
     const productImagePreview = document.getElementById("product-image-preview");
     let editingIndex = -1;
@@ -13,14 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById(`${section}`).style.display = 'block';
     };
 
-    // --- Productos ---
-    function loadProducts() {
-        productList.innerHTML = "";
+      // Cargar y mostrar productos desde localStorage
+      function loadProducts() {
         const products = JSON.parse(localStorage.getItem("products")) || [];
-        products.forEach((product, index) => {
-            const productCard = document.createElement("div");
-            productCard.classList.add("product-card");
-            productCard.innerHTML = `
+        productList.innerHTML = products.map((product, index) => `
+            <div class="product-card">
                 <h3>${product.name}</h3>
                 <p>ID: ${product.id}</p>
                 <p>Precio: $${product.price}</p>
@@ -30,48 +27,59 @@ document.addEventListener("DOMContentLoaded", () => {
                 <img src="${product.image}" alt="${product.name}" style="width: 150px; height: 150px;">
                 <button onclick="deleteProduct(${index})">Eliminar</button>
                 <button onclick="editProduct(${index})">Editar</button>
-            `;
-            productList.appendChild(productCard);
-        });
+            </div>
+        `).join('');
     }
 
+    // Evento submit del formulario de productos
     productForm.addEventListener("submit", async (e) => {
         e.preventDefault();
-        const id = editingIndex >= 0 ? document.getElementById("product-id").value : Date.now();
-        const name = document.getElementById("product-name").value;
-        const price = parseFloat(document.getElementById("product-price").value);
-        const description = document.getElementById("product-description").value;
-        const keywords = document.getElementById("product-keywords").value.split(",").map(k => k.trim());
-        const color = document.getElementById("product-color").value;
-        const size = document.getElementById("product-size").value;
-        const category = document.getElementById("product-category").value;
-        const rating = parseInt(document.getElementById("product-rating").value, 10);
-        const imageFile = document.getElementById("product-image").files[0];
 
-        let imageUrl = "";
+        const id = editingIndex >= 0 ? document.getElementById("product-id").value : Date.now();
+        const newProduct = {
+            id,
+            name: document.getElementById("product-name").value,
+            price: parseFloat(document.getElementById("product-price").value),
+            description: document.getElementById("product-description").value,
+            keywords: document.getElementById("product-keywords").value.split(",").map(k => k.trim()),
+            color: document.getElementById("product-color").value,
+            size: document.getElementById("product-size").value,
+            category: document.getElementById("product-category").value,
+            rating: parseInt(document.getElementById("product-rating").value, 10),
+            image: await getProductImageUrl()
+        };
+
+        saveProduct(newProduct);
+        productForm.reset();
+        productImagePreview.style.display = 'none';
+        loadProducts();
+    });
+
+    // Obtiene la URL de la imagen del producto
+    async function getProductImageUrl() {
+        const imageFile = document.getElementById("product-image").files[0];
         if (imageFile) {
-            imageUrl = await convertToBase64(imageFile);
+            return await convertToBase64(imageFile);
         } else if (editingIndex >= 0) {
             const products = JSON.parse(localStorage.getItem("products")) || [];
-            imageUrl = products[editingIndex].image; // Mantener la imagen previa al editar
+            return products[editingIndex].image; // Mantener la imagen previa al editar
         }
+        return '';
+    }
 
-        const newProduct = { id, name, price, description, keywords, color, size, category, rating, image: imageUrl };
+    // Guarda un producto en localStorage (crea o edita)
+    function saveProduct(newProduct) {
         const products = JSON.parse(localStorage.getItem("products")) || [];
-
         if (editingIndex >= 0) {
             products[editingIndex] = newProduct;
             editingIndex = -1;
         } else {
             products.push(newProduct);
         }
-
         localStorage.setItem("products", JSON.stringify(products));
-        productForm.reset();
-        productImagePreview.style.display = 'none'; // Ocultar preview después de guardar
-        loadProducts();
-    });
+    }
 
+    // Mostrar vista previa de la imagen seleccionada
     document.getElementById("product-image").addEventListener("change", (e) => {
         const file = e.target.files[0];
         if (file) {
@@ -82,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Función para cargar la imagen de un archivo
+    // Convertir archivo a base64
     function convertToBase64(file) {
         return new Promise((resolve, reject) => {
             const reader = new FileReader();
@@ -92,15 +100,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- Funciones de eliminar y editar ---
-    window.deleteProduct = function(index) {
+    // Funciones de eliminar y editar productos
+    window.deleteProduct = (index) => {
         const products = JSON.parse(localStorage.getItem("products")) || [];
         products.splice(index, 1);
         localStorage.setItem("products", JSON.stringify(products));
         loadProducts();
     };
 
-    window.editProduct = function(index) {
+    window.editProduct = (index) => {
         const products = JSON.parse(localStorage.getItem("products")) || [];
         const product = products[index];
 
@@ -115,8 +123,22 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("product-rating").value = product.rating;
         productImagePreview.src = product.image;
         productImagePreview.style.display = 'block';
+
         editingIndex = index;
     };
+// Cargar y mostrar artículos desde localStorage
+function loadArticles() {
+    const articles = JSON.parse(localStorage.getItem("articles")) || [];
+    articleList.innerHTML = articles.map((article, index) => `
+        <div class="article-card">
+            <h3>${article.title}</h3>
+            <p>${article.header}</p>
+            <img src="${article.image}" alt="${article.title}" style="width: 150px; height: 150px;">
+            <button onclick="deleteArticle(${index})">Eliminar</button>
+            <button onclick="editArticle(${index})">Editar</button>
+        </div>
+    `).join('');
+}
 
     // Función para cargar artículos desde localStorage
     function loadArticles() {
