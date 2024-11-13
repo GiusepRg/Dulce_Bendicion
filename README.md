@@ -1,6 +1,9 @@
 # 🍰 Dulce Bendición - E-commerce Project 🍦
 
-![Dulce Bendición Logo](https://giuseprg.github.io/Dulce_Bendicion/Img/logo.ico)
+<div align="center">
+    <img src="https://giuseprg.github.io/Dulce_Bendicion/Img/logo.ico" alt="Dulce Bendición Logo">
+</div>
+
 ## Bienvenidos a Dulce Bendición 🌸
 
 Dulce Bendición es una pastelería, cafetería y heladería en San Vicente de Chucurí. Este proyecto está diseñado para desarrollar una página web e-commerce moderna, intuitiva y estética que refleje la esencia de nuestra marca. Aquí encontrarás una combinación de diseño funcional con paletas de colores en tonos rosas 🌷, ofreciendo una experiencia simple y atractiva para los amantes de los dulces y el buen gusto.
