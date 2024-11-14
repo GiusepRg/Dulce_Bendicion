@@ -907,80 +907,94 @@ footer {
 ::-webkit-scrollbar {   
     display: none;
 }
-/*Promo*/
+/* Container principal de la sección Promociones */
 .promo-container {
     padding: 20px;
     text-align: center;
+    max-width: 1200px;
+    margin: 0 auto; /* Centra la sección en la página */
 }
 
-.promo-container h1 {
+.titulopromoespe {
     font-size: 2.5em;
     color: #d45d79;
     margin-bottom: 20px;
 }
 
+/* Grid de Promociones */
 .promos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
+    align-items: start;
 }
 
+/* Tarjeta de Promoción */
 .promo-card {
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     overflow: hidden;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
 }
 
 .promo-card:hover {
     transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
-.promo-card img {
+/* Video dentro de la tarjeta de Promoción */
+.promo-card video {
     width: 100%;
-    height: 200px;
+    height: 220px; /* Define un tamaño fijo */
     object-fit: cover;
+    border-radius: 10px 10px 0 0; /* Bordes redondeados solo en la parte superior */
 }
 
+/* Detalles de la promoción */
 .promo-details {
-    padding: 15px;
+    padding: 20px;
     text-align: left;
 }
 
 .promo-details h2 {
-    font-size: 1.5em;
+    font-size: 1.6em;
     margin-bottom: 10px;
     color: #333;
+    font-weight: 600;
 }
 
 .promo-price {
-    font-size: 1.2em;
+    font-size: 1.3em;
     color: #d45d79;
     margin-bottom: 5px;
+    font-weight: bold;
 }
 
 .promo-desc {
-    font-size: 0.9em;
+    font-size: 1em;
     color: #666;
+    line-height: 1.5;
 }
 
+/* Responsivo */
 @media (max-width: 600px) {
-    .promo-card img {
-        height: 50px;
+    .promo-container h1 {
+        font-size: 1.8em;
     }
-
-    .promos-grid {
-        padding: 10px;
-        margin: 20rem;
+    .promo-card video {
+        height: 180px;
     }
-}
-
-.titulopromoespe{
-
-    margin-bottom: 20px;
+    .promo-details h2 {
+        font-size: 1.4em;
+    }
+    .promo-price {
+        font-size: 1.1em;
+    }
 }
 
 /*====================================*/
