@@ -1534,9 +1534,10 @@ button:active {
 }
 
 /* Ajuste de la posición del botón "Mostrar Filtros" */
+/* Botón Mostrar Filtros siempre visible */
 .filter-toggle {
     display: inline-block;
-    padding: 10px;
+    padding: 10px 15px;
     background-color: #be005f;
     color: #fff;
     text-align: center;
@@ -1547,6 +1548,21 @@ button:active {
     right: 15px;
     z-index: 1000;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+/* Sidebar de Filtros (en móvil como superposición) */
+.filter-sidebar {
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    right: -100%; /* Oculto inicialmente fuera de la pantalla */
+    height: 100%;
+    z-index: 1500;
+    transition: right 0.4s ease;
+    overflow-y: auto;
 }
 
 /* Category and Tag Filter */
@@ -1563,7 +1579,10 @@ button:active {
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
 }
-
+/* Mostrar barra de filtros como overlay */
+.filter-sidebar.show {
+    right: 0;
+}
 .filter-tag:hover {
     transform: scale(1.1);
     background-color: #ff5072;
@@ -1655,8 +1674,8 @@ button:active {
     }
 
     .product-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust for smaller screens */
-
+        padding: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 
     .product-card {

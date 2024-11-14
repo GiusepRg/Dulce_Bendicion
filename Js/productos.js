@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const sortOptions = document.getElementById('sort-options');
     const filterSidebar = document.querySelector('.filter-sidebar');
 
-    // Toggle de barra de filtros
+    
     function toggleFilterSidebar() {
         filterSidebar.classList.toggle('show');
     }
