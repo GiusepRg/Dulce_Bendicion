@@ -66,7 +66,7 @@
             </div>
         </div>
     </header>
-
+<section> 
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <!-- Añade aquí tus imágenes o contenido de cada slide -->
@@ -88,27 +88,30 @@
         <div class="swiper-pagination"></div>
     </div>
     <!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
-<script>
-    var swiper = new Swiper('.swiper-container', {
-        loop: true,                  // Habilita el desplazamiento en bucle
-        autoplay: {
-            delay: 3000,             // Cambia cada 3 segundos
-            disableOnInteraction: false,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        grabCursor: true,            // Habilita el arrastre en PC y móviles
-        slidesPerView: 1,
-    });
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            loop: true,                  // Habilita el desplazamiento en bucle
+            autoplay: {
+                delay: 3000,             // Cambia cada 3 segundos
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            grabCursor: true,            // Habilita el arrastre en PC y móviles
+            slidesPerView: 1,
+        });
+    </script>
+    </section>
+    
+<section>
     <div class="product-container">
         <!-- Botón para mostrar filtros en móviles -->
         <div class="filter-toggle" onclick="toggleFilterSidebar()">Mostrar Filtros</div>
@@ -150,7 +153,7 @@
             <!-- Los productos se cargarán aquí dinámicamente -->
         </div>
     </div>
-    
+</section>
     <footer>
         <div class="footer-content">
             <div class="social-media">
